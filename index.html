@@ -39,10 +39,89 @@
       text-decoration: none;
       font-size: 14px;
       transition: color 0.2s;
+      cursor: pointer;
     }
 
     .nav-link:hover {
       color: #202124;
+    }
+
+    /* BTC Donation Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 48px;
+      border-radius: 16px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 28px;
+      color: #5f6368;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 8px;
+    }
+
+    .modal-close:hover {
+      color: #202124;
+    }
+
+    .modal h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      color: #202124;
+    }
+
+    .btc-address {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      word-break: break-all;
+      margin: 20px 0;
+      border: 2px solid #dadce0;
+    }
+
+    .copy-btn {
+      background: #8b5cf6;
+      color: #fff;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #7c3aed;
     }
 
     .hero {
@@ -92,15 +171,26 @@
       max-width: 520px;
     }
 
-    .more-link {
-      color: #1a73e8;
-      text-decoration: none;
+    .more-btn {
+      background: #8b5cf6;
+      color: #fff;
+      border: none;
+      padding: 12px 32px;
       font-size: 14px;
-      transition: text-decoration 0.2s;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+      margin-top: 10px;
+      text-transform: lowercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
     }
 
-    .more-link:hover {
-      text-decoration: underline;
+    .more-btn:hover {
+      background: #7c3aed;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
     }
 
     .signature {
@@ -118,183 +208,34 @@
       display: inline-block;
     }
 
-    /* GOD and ASCEND blocks */
-    .blocks-container {
-      position: relative;
-      width: 550px;
-      height: 550px;
+    /* God Earth Image */
+    .godearth-image {
+      max-width: 550px;
+      width: 100%;
+      height: auto;
     }
 
-    .block {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      font-weight: 700;
-      color: #fff;
-      box-shadow: 
-        0 12px 24px rgba(0,0,0,0.15),
-        inset -3px -3px 10px rgba(0,0,0,0.15),
-        inset 3px 3px 10px rgba(255,255,255,0.3);
-      animation: float 3s ease-in-out infinite;
-      transform-style: preserve-3d;
-      font-family: 'Product Sans', sans-serif;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(3deg); }
-    }
-
-    /* GOD - top row */
-    .block-g {
-      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); /* Gold */
-      top: 60px;
-      right: 80px;
-      animation-delay: 0s;
-      width: 120px;
-      height: 120px;
-      font-size: 72px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      color: #fff;
-    }
-
-    .block-o {
-      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); /* Heavenly blue */
-      top: 20px;
-      right: 250px;
-      animation-delay: 0.5s;
-      width: 115px;
-      height: 115px;
-      font-size: 68px;
-      color: #0369a1;
-      text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
-    }
-
-    .block-d {
-      background: linear-gradient(135deg, #fae8ff 0%, #f0abfc 100%); /* Heavenly purple/pink */
-      top: 100px;
-      right: 400px;
-      animation-delay: 1s;
-      width: 110px;
-      height: 110px;
-      font-size: 66px;
-      color: #a21caf;
-    }
-
-    /* ASCEND - bottom row */
-    .block-a {
-      background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); /* Lavender */
-      top: 240px;
-      right: 420px;
-      animation-delay: 1.5s;
-      width: 95px;
-      height: 95px;
-      font-size: 56px;
-      color: #6d28d9;
-    }
-
-    .block-s {
-      background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%); /* Celestial teal */
-      top: 260px;
-      right: 310px;
-      animation-delay: 2s;
-      width: 90px;
-      height: 90px;
-      font-size: 52px;
-      color: #0f766e;
-    }
-
-    .block-c {
-      background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); /* Warm orange/peach */
-      top: 240px;
-      right: 210px;
-      animation-delay: 2.5s;
-      width: 85px;
-      height: 85px;
-      font-size: 50px;
-      color: #9a3412;
-    }
-
-    .block-e {
-      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); /* Soft pink */
-      top: 260px;
-      right: 120px;
-      animation-delay: 3s;
-      width: 88px;
-      height: 88px;
-      font-size: 52px;
-      color: #be185d;
-    }
-
-    .block-n {
-      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); /* Mint green */
-      top: 380px;
-      right: 240px;
-      animation-delay: 3.5s;
-      width: 92px;
-      height: 92px;
-      font-size: 54px;
-      color: #065f46;
-    }
-
-    .block-d2 {
-      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); /* Light indigo */
-      top: 390px;
-      right: 60px;
-      animation-delay: 4s;
-      width: 90px;
-      height: 90px;
-      font-size: 52px;
-      color: #4338ca;
-    }
-
-    .cta-button {
-      background: #8b5cf6; /* Purple to match your J */
-      color: #fff;
-      border: none;
-      padding: 12px 32px;
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-block;
-      margin-top: 30px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .cta-button:hover {
-      background: #7c3aed;
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-    }
-
-    /* Deployments panel with icon cards */
-    .deployments-section {
+    /* Family section */
+    .family-section {
       display: none;
       padding: 80px 60px;
       background: #f8f9fa;
       border-top: 1px solid #dadce0;
     }
 
-    .deployments-section.active {
+    .family-section.active {
       display: block;
     }
 
-    .deployments-grid {
+    .family-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 40px;
     }
 
-    .deployment-card {
+    .family-card {
       background: #fff;
       border: 1px solid #dadce0;
       border-radius: 8px;
@@ -302,12 +243,17 @@
       transition: all 0.3s ease;
     }
 
-    .deployment-card:hover {
+    .family-card:hover {
       box-shadow: 0 2px 8px 0 rgba(60,64,67,0.3), 0 4px 12px 4px rgba(60,64,67,0.15);
       transform: translateY(-4px);
     }
 
-    .deployment-icon {
+    .family-card.coming-soon {
+      opacity: 0.7;
+      border: 2px dashed #dadce0;
+    }
+
+    .family-icon {
       width: 56px;
       height: 56px;
       border-radius: 8px;
@@ -322,41 +268,65 @@
     .icon-sourceos { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
     .icon-homeuni { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
     .icon-flow { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+    .icon-secret { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); }
 
-    .deployment-card h2 {
+    .family-card h2 {
       font-size: 24px;
       font-weight: 500;
       margin-bottom: 12px;
       color: #202124;
     }
 
-    .deployment-card p {
+    .family-card p {
       font-size: 14px;
       color: #5f6368;
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    .deployment-links {
+    .domain-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #1a73e8;
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: all 0.2s;
+    }
+
+    .domain-link:hover {
+      color: #1765cc;
+    }
+
+    .domain-icon {
+      font-size: 20px;
+    }
+
+    .family-links {
       list-style: none;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #dadce0;
     }
 
-    .deployment-links a {
-      color: #1a73e8;
+    .family-links a {
+      color: #5f6368;
       text-decoration: none;
       font-size: 13px;
-      transition: text-decoration 0.2s;
+      transition: color 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .deployment-links a:hover {
-      text-decoration: underline;
+    .family-links a:hover {
+      color: #1a73e8;
     }
 
     .social-icon {
@@ -428,9 +398,8 @@
         margin-bottom: 60px;
       }
 
-      .blocks-container {
-        width: 100%;
-        height: 400px;
+      .godearth-image {
+        max-width: 100%;
       }
 
       h1 {
@@ -441,20 +410,16 @@
         padding: 20px 40px;
       }
 
-      .deployments-section {
+      .family-section {
         padding: 60px 40px;
       }
 
-      .deployments-grid {
+      .family-grid {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 640px) {
-      .blocks-container {
-        display: none;
-      }
-
       h1 {
         font-size: 32px;
       }
@@ -462,9 +427,27 @@
   </style>
 </head>
 <body>
+  <!-- BTC Donation Modal -->
+  <div class="modal" id="investorModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <h2>Support the Mission 🚀</h2>
+      <p style="color: #5f6368; margin-bottom: 16px;">
+        If you believe in what I'm building, you can support with Bitcoin:
+      </p>
+      <div class="btc-address" id="btcAddress">
+        [YOUR_BITCOIN_ADDRESS_HERE]
+      </div>
+      <button class="copy-btn" id="copyBtn">Copy Address</button>
+      <p style="color: #10b981; margin-top: 16px; font-size: 14px; display: none;" id="copiedMsg">
+        ✓ Copied to clipboard!
+      </p>
+    </div>
+  </div>
+
   <header class="header">
     <div class="logo">Jacob Fleming</div>
-    <a href="#" class="nav-link" id="navLink">Deployments</a>
+    <span class="nav-link" id="investorsLink">Investors</span>
   </header>
 
   <section class="hero">
@@ -477,56 +460,47 @@
         "I never thought like a billionaire, maybe that was their problem."
       </p>
       
-      <a href="#" class="more-link" id="moreLink">more</a>
+      <button class="more-btn" id="moreBtn">more</button>
       
       <div class="signature">Jacob Fleming</div>
       <div class="signature-name">Jacob Fleming</div>
-
-      <button class="cta-button" id="deploymentsBtn">View Deployments</button>
     </div>
 
     <div class="hero-right">
-      <div class="blocks-container">
-        <!-- GOD -->
-        <div class="block block-g">G</div>
-        <div class="block block-o">O</div>
-        <div class="block block-d">D</div>
-        
-        <!-- ASCEND -->
-        <div class="block block-a">A</div>
-        <div class="block block-s">S</div>
-        <div class="block block-c">C</div>
-        <div class="block block-e">E</div>
-        <div class="block block-n">N</div>
-        <div class="block block-d2">D</div>
-      </div>
+      <img src="images/godearth.png" alt="God Earth" class="godearth-image">
     </div>
   </section>
 
-  <section class="deployments-section" id="deploymentsSection">
-    <div class="deployments-grid">
-      <div class="deployment-card">
-        <div class="deployment-icon icon-sourceos">
+  <section class="family-section" id="familySection">
+    <div class="family-grid">
+      <div class="family-card">
+        <div class="family-icon icon-sourceos">
           <i class="fas fa-brain"></i>
         </div>
         <h2>SourceOS</h2>
+        <a href="https://sourceos.xyz" class="domain-link">
+          <i class="fas fa-globe domain-icon"></i>
+          sourceos.xyz
+        </a>
         <p>Modernised Debloated Spiritual Consciousness Framework System For Personal and Collective Sovereignty</p>
-        <div class="deployment-links">
-          <a href="https://sourceos.xyz"><i class="fas fa-external-link-alt social-icon"></i>sourceos.xyz</a>
+        <div class="family-links">
           <a href="https://instagram.com/sourceos.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a>
           <a href="https://tiktok.com/@sourceos.xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
           <a href="https://x.com/sourceos_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a>
         </div>
       </div>
 
-      <div class="deployment-card">
-        <div class="deployment-icon icon-homeuni">
+      <div class="family-card">
+        <div class="family-icon icon-homeuni">
           <i class="fas fa-graduation-cap"></i>
         </div>
         <h2>HOMEUniversity</h2>
+        <a href="https://homeuniversity.xyz" class="domain-link">
+          <i class="fas fa-globe domain-icon"></i>
+          homeuniversity.xyz
+        </a>
         <p>Modernised Consciousness Ascension Educational Hub. GIGAPILL, MOGPILL, CUTPILL, DICKPILL — consciousness mastery protocols.</p>
-        <div class="deployment-links">
-          <a href="https://homeuniversity.xyz"><i class="fas fa-external-link-alt social-icon"></i>homeuniversity.xyz</a>
+        <div class="family-links">
           <a href="https://skool.com/homeuniversity"><i class="fas fa-school social-icon"></i>Skool</a>
           <a href="https://instagram.com/homeuniversity.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a>
           <a href="https://tiktok.com/@homeuniversity_xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
@@ -534,24 +508,35 @@
         </div>
       </div>
 
-      <div class="deployment-card">
-        <div class="deployment-icon icon-flow">
+      <div class="family-card">
+        <div class="family-icon icon-flow">
           <i class="fas fa-music"></i>
         </div>
         <h2>Flow Records</h2>
+        <a href="https://flowrecords.xyz" class="domain-link">
+          <i class="fas fa-globe domain-icon"></i>
+          flowrecords.xyz
+        </a>
         <p>Modern Record Label. Currently signed: Jacob Fleming (Producer) and 62serpens (Producer)</p>
-        <div class="deployment-links">
-          <a href="https://flowrecords.xyz"><i class="fas fa-external-link-alt social-icon"></i>flowrecords.xyz</a>
+        <div class="family-links">
           <a href="https://instagram.com/flowrecords.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a>
           <a href="https://tiktok.com/@flowrecords.xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
           <a href="https://x.com/flowrecords_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a>
         </div>
       </div>
+
+      <div class="family-card coming-soon">
+        <div class="family-icon icon-secret">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h2>Coming Soon</h2>
+        <p style="font-style: italic;">A new tool is being built. Stay tuned...</p>
+      </div>
     </div>
 
     <div class="special-actions" id="specialActions">
-      <a href="coaching.html" class="action-card">
-        <h3>Interdimensional Ascension Coaching</h3>
+      <a href="mentorship.html" class="action-card">
+        <h3>Interdimensional Ascension Mentorship</h3>
         <p>Private 1-on-1 consciousness work</p>
       </a>
 
@@ -563,22 +548,50 @@
   </section>
 
   <script>
-    const deploymentsBtn = document.getElementById('deploymentsBtn');
-    const moreLink = document.getElementById('moreLink');
-    const navLink = document.getElementById('navLink');
-    const deploymentsSection = document.getElementById('deploymentsSection');
+    const moreBtn = document.getElementById('moreBtn');
+    const familySection = document.getElementById('familySection');
     const specialActions = document.getElementById('specialActions');
+    const investorsLink = document.getElementById('investorsLink');
+    const investorModal = document.getElementById('investorModal');
+    const closeModal = document.getElementById('closeModal');
+    const copyBtn = document.getElementById('copyBtn');
+    const btcAddress = document.getElementById('btcAddress');
+    const copiedMsg = document.getElementById('copiedMsg');
 
-    function showDeployments(e) {
-      e.preventDefault();
-      deploymentsSection.classList.add('active');
+    // Show family section
+    moreBtn.addEventListener('click', () => {
+      familySection.classList.add('active');
       specialActions.classList.add('active');
-      deploymentsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+      familySection.scrollIntoView({ behavior: 'smooth' });
+    });
 
-    deploymentsBtn.addEventListener('click', showDeployments);
-    moreLink.addEventListener('click', showDeployments);
-    navLink.addEventListener('click', showDeployments);
+    // Show investor modal
+    investorsLink.addEventListener('click', () => {
+      investorModal.classList.add('active');
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', () => {
+      investorModal.classList.remove('active');
+    });
+
+    // Close modal on outside click
+    investorModal.addEventListener('click', (e) => {
+      if (e.target === investorModal) {
+        investorModal.classList.remove('active');
+      }
+    });
+
+    // Copy BTC address
+    copyBtn.addEventListener('click', () => {
+      const address = btcAddress.textContent;
+      navigator.clipboard.writeText(address).then(() => {
+        copiedMsg.style.display = 'block';
+        setTimeout(() => {
+          copiedMsg.style.display = 'none';
+        }, 2000);
+      });
+    });
   </script>
 </body>
 </html>
