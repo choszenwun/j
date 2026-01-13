@@ -4,270 +4,443 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Jacob Fleming: Musician, Producer, Theorist, Builder">
-  <title>is For Jacob</title>
+  <title>jfg.xyz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-      background: #fafafa; 
-      color: #111; 
-      line-height: 1.6; 
+      font-family: 'Roboto', Arial, sans-serif; 
+      background: #fff; 
+      color: #202124; 
+      line-height: 1.5; 
     }
     .container { 
-      max-width: 900px; 
+      max-width: 1000px; 
       margin: 0 auto; 
-      padding: 100px 24px 80px; 
-      text-align: center; 
+      padding: 80px 40px; 
     }
-    .j-logo {
-      width: 180px;
-      height: auto;
-      margin-bottom: 32px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    
+    .header {
+      text-align: center;
+      margin-bottom: 80px;
     }
+    
+    .logo-blocks {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+    
+    .letter-block {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 700;
+      font-family: 'Product Sans', sans-serif;
+      border-radius: 4px;
+      color: #fff;
+    }
+    
+    .letter-j { background: #4285f4; }
+    .letter-f { background: #ea4335; }
+    .letter-g { background: #fbbc04; color: #202124; }
+    
     h1 { 
-      font-size: clamp(4.5rem, 12vw, 9rem); 
-      font-weight: 700; 
-      letter-spacing: -0.06em; 
-      margin-bottom: 12px; 
-    }
-    .quote { 
-      font-size: clamp(1.2rem, 3.5vw, 1.5rem); 
+      font-size: 48px; 
       font-weight: 400; 
-      opacity: 0.75; 
-      max-width: 720px;
-      margin: 0 auto 80px;
+      font-family: 'Product Sans', sans-serif;
+      letter-spacing: -0.5px; 
+      margin-bottom: 16px;
+      color: #202124;
     }
-    .toggle { 
-      background: #000; 
+    
+    .tagline { 
+      font-size: 18px; 
+      font-weight: 400; 
+      color: #5f6368;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    
+    .cta-button { 
+      background: #1a73e8; 
       color: #fff; 
       border: none; 
-      padding: 16px 40px; 
-      font-size: 1.1rem; 
+      padding: 12px 32px; 
+      font-size: 14px; 
       font-weight: 500; 
-      border-radius: 12px; 
+      border-radius: 4px; 
       cursor: pointer; 
-      transition: all 0.25s ease; 
-      margin: 0 auto 48px;
+      transition: all 0.2s ease; 
+      margin: 0 auto;
       display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .toggle:hover { 
-      background: #222; 
-      transform: translateY(-2px); 
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    
+    .cta-button:hover { 
+      background: #1765cc;
+      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
     }
+
+    .special-buttons {
+      display: none;
+      margin-top: 32px;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .special-buttons.active {
+      display: flex;
+    }
+
     .coaching-btn {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #34a853;
       color: #fff;
       border: none;
-      padding: 16px 40px;
-      font-size: 1.1rem;
+      padding: 12px 32px;
+      font-size: 14px;
       font-weight: 500;
-      border-radius: 12px;
+      border-radius: 4px;
       cursor: pointer;
-      transition: all 0.25s ease;
-      margin: 0 12px 24px;
-      display: inline-block;
+      transition: all 0.2s ease;
       text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
     .coaching-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+      background: #2d8e47;
+      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
     }
+
     .wife-btn {
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      background: #ea4335;
       color: #fff;
       border: none;
-      padding: 16px 40px;
-      font-size: 1.1rem;
+      padding: 12px 32px;
+      font-size: 14px;
       font-weight: 500;
-      border-radius: 12px;
+      border-radius: 4px;
       cursor: pointer;
-      transition: all 0.25s ease;
-      margin: 0 12px 24px;
-      display: inline-block;
+      transition: all 0.2s ease;
       text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
     .wife-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(245, 87, 108, 0.3);
+      background: #d33426;
+      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
     }
+    
     .deployments-panel { 
       display: none; 
-      background: #fff; 
-      border: 1px solid #eee; 
-      border-radius: 16px; 
-      padding: 48px 40px; 
-      text-align: left; 
-      box-shadow: 0 12px 48px rgba(0,0,0,0.08);
+      margin-top: 80px;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.4s ease, transform 0.4s ease;
     }
+    
     .deployments-panel.active { 
       display: block; 
       opacity: 1;
       transform: translateY(0);
     }
-    .section { margin-bottom: 64px; }
-    .section:last-child { margin-bottom: 0; }
-    .section h2 { 
-      font-size: 2.2rem; 
-      font-weight: 600; 
-      margin-bottom: 12px; 
+    
+    .deployment-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      position: relative;
     }
-    .domain {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #444;
-      margin-bottom: 16px;
-      display: block;
+
+    /* Flowing pipes/lines between sections */
+    .pipe-connector {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: linear-gradient(180deg, #4285f4 0%, #ea4335 50%, #34a853 100%);
+      opacity: 0.2;
+      z-index: 0;
     }
-    .description {
-      font-size: 1.1rem;
-      opacity: 0.85;
+
+    .pipe-1 { top: 240px; height: 280px; }
+    .pipe-2 { top: 820px; height: 280px; }
+    
+    .deployment {
+      position: relative;
+      background: #f8f9fa;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      padding: 40px;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    
+    .deployment:hover {
+      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+      border-color: #4285f4;
+    }
+    
+    .deployment-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 24px;
     }
-    .links { 
-      list-style: none; 
-      padding: 0; 
+
+    .deployment-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      flex-shrink: 0;
     }
-    .links li { 
-      margin-bottom: 14px; 
+
+    .icon-sourceos { background: #4285f4; }
+    .icon-homeuni { background: #34a853; }
+    .icon-flow { background: #ea4335; }
+    
+    .deployment h2 { 
+      font-size: 28px; 
+      font-weight: 400; 
+      font-family: 'Product Sans', sans-serif;
+      color: #202124;
+      margin: 0;
     }
-    .links a { 
-      color: #111; 
-      text-decoration: none; 
-      font-weight: 500; 
-      transition: opacity 0.2s; 
+    
+    .domain {
+      font-size: 14px;
+      color: #1a73e8;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      font-weight: 500;
     }
-    .links a:hover { opacity: 0.65; }
+
+    .domain:hover {
+      text-decoration: underline;
+    }
+    
+    .description {
+      font-size: 14px;
+      color: #5f6368;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .links { 
+      list-style: none; 
+      padding: 0;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .links a { 
+      color: #5f6368;
+      text-decoration: none; 
+      font-size: 13px;
+      font-weight: 500; 
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .links a:hover { 
+      color: #1a73e8;
+    }
+    
     .social-icon { 
-      font-size: 1.25rem; 
-      margin-right: 10px; 
-      opacity: 0.85; 
+      font-size: 16px;
     }
+    
     .courses {
       list-style: none;
-      padding-left: 0;
-      margin: 20px 0;
-      font-size: 1.05rem;
+      padding: 16px 0 0 0;
+      margin: 16px 0 0 0;
+      font-size: 14px;
+      border-top: 1px solid #dadce0;
     }
+    
     .courses li {
-      margin-bottom: 10px;
-      opacity: 0.9;
+      margin-bottom: 12px;
+      color: #5f6368;
+      line-height: 1.6;
     }
+    
     .courses li strong {
-      font-weight: 600;
-      opacity: 1;
+      font-weight: 500;
+      color: #202124;
     }
+    
     .artist-links {
-      display: block;
+      display: flex;
+      gap: 16px;
       margin-top: 8px;
-      margin-left: 20px;
+      flex-wrap: wrap;
     }
+    
     .artist-links a {
-      margin-right: 16px;
-      font-size: 0.98rem;
+      font-size: 13px;
+      color: #1a73e8;
     }
+    
     .footer {
       text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.5;
-      margin-top: 100px;
+      font-size: 12px;
+      color: #5f6368;
+      margin-top: 120px;
+      padding-top: 40px;
+      border-top: 1px solid #dadce0;
     }
+    
     @media (max-width: 768px) {
-      .container { padding: 80px 20px 60px; }
-      .deployments-panel { padding: 36px 24px; }
-      .coaching-btn, .wife-btn {
-        display: block;
-        margin: 12px auto;
-      }
+      .container { padding: 60px 24px; }
+      .logo-blocks { gap: 4px; }
+      .letter-block { width: 60px; height: 60px; font-size: 36px; }
+      h1 { font-size: 32px; }
+      .deployment { padding: 28px; }
+      .pipe-connector { display: none; }
+      .links { gap: 16px; }
+      .artist-links { flex-direction: column; gap: 8px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="images/j.jpg" alt="Purple J Building Block" class="j-logo">
-    <h1>is For Jacob</h1>
-    <p class="quote">"I never thought like a billionaire, maybe that was their problem."</p>
+    <div class="header">
+      <div class="logo-blocks">
+        <div class="letter-block letter-j">J</div>
+        <div class="letter-block letter-f">F</div>
+        <div class="letter-block letter-g">G</div>
+      </div>
+      
+      <h1>is For Jacob</h1>
+      <p class="tagline">"I never thought like a billionaire, maybe that was their problem."</p>
 
-    <div style="margin-bottom: 48px;">
-      <a href="coaching.html" class="coaching-btn">Interdimensional Ascension Coaching</a>
-      <a href="wife-application.html" class="wife-btn">Wife Application</a>
+      <button class="cta-button" id="toggleBtn">View Deployments</button>
+
+      <div class="special-buttons" id="specialButtons">
+        <a href="coaching.html" class="coaching-btn">Ascension Coaching</a>
+        <a href="wife-application.html" class="wife-btn">Wife Application</a>
+      </div>
     </div>
 
-    <button class="toggle" id="toggleBtn">Deployments</button>
-
     <div class="deployments-panel" id="panel">
-      <div class="section">
-        <h2>SourceOS</h2>
-        <a href="https://sourceos.xyz" class="domain"><i class="fas fa-globe social-icon"></i>sourceos.xyz</a>
-        <p class="description">Modernised Debloated Spiritual Consciousness Framework System For Personal and Collective Sovereignty</p>
-        <ul class="links">
-          <li><a href="https://instagram.com/sourceos.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/sourceos.xyz</a></li>
-          <li><a href="https://tiktok.com/sourceos.xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/sourceos.xyz</a></li>
-          <li><a href="https://x.com/sourceos_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/sourceos_xyz</a></li>
-        </ul>
-      </div>
+      <div class="deployment-grid">
+        <!-- Flowing pipe connectors -->
+        <div class="pipe-connector pipe-1"></div>
+        <div class="pipe-connector pipe-2"></div>
 
-      <div class="section">
-        <h2>HOMEUniversity</h2>
-        <a href="https://homeuniversity.xyz" class="domain"><i class="fas fa-globe social-icon"></i>homeuniversity.xyz</a>
-        <p class="description">Modernised Consciousness Ascension Educational Hub For Personal and Collective Sovereignty. Currently teaching via Skool: <a href="https://skool.com/homeuniversity">skool.com/homeuniversity</a></p>
-        <p>Current Courses:</p>
-        <ul class="courses">
-          <li><strong>MAJOR PILL: GIGAPILL 🧠 💊</strong> Brain/DNA - 3 Phases of consciousness mastery over 15 Levels. Spiritual Steroids 💉</li>
-          <li><strong>SUPPORTING STACK</strong></li>
-          <li>* MOGPILL 💪💊 2026 Aesthetics (Looksmaxing, Physique, Diet)</li>
-          <li>* CUTPILL ✂️ 💊 Routine Infant Calibration Debugging</li>
-          <li>* DICKPILL 🍆💊 Male Sexual Health Maxing And Energetic Clearing Protocols</li>
-        </ul>
-        <ul class="links">
-          <li><a href="https://instagram.com/homeuniversity.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/homeuniversity.xyz</a></li>
-          <li><a href="https://tiktok.com/homeuniversity_xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/homeuniversity.xyz</a></li>
-          <li><a href="https://x.com/homeuni_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/homeuni_xyz</a></li>
-        </ul>
-      </div>
+        <div class="deployment">
+          <div class="deployment-header">
+            <div class="deployment-icon icon-sourceos">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h2>SourceOS</h2>
+          </div>
+          <a href="https://sourceos.xyz" class="domain">
+            <i class="fas fa-external-link-alt"></i>
+            sourceos.xyz
+          </a>
+          <p class="description">Modernised Debloated Spiritual Consciousness Framework System For Personal and Collective Sovereignty</p>
+          <ul class="links">
+            <li><a href="https://instagram.com/sourceos.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a></li>
+            <li><a href="https://tiktok.com/@sourceos.xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a></li>
+            <li><a href="https://x.com/sourceos_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a></li>
+          </ul>
+        </div>
 
-      <div class="section">
-        <h2>Flow Records</h2>
-        <a href="https://flowrecords.xyz" class="domain"><i class="fas fa-globe social-icon"></i>flowrecords.xyz</a>
-        <p class="description">Modern Record Label</p>
-        <ul class="links">
-          <li><a href="https://instagram.com/flowrecords.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/flowrecords.xyz</a></li>
-          <li><a href="https://tiktok.com/flowrecords.xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/flowrecords.xyz</a></li>
-          <li><a href="https://x.com/flowrecords_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/flowrecords_xyz</a></li>
-        </ul>
-        <p style="margin-top: 24px;">Currently Signed:</p>
-        <ul class="courses">
-          <li>
-            <strong>Jacob Fleming - Producer</strong>
-            <span class="artist-links">
-              <a href="https://instagram.com/jacobfleming"><i class="fab fa-instagram social-icon"></i>Instagram</a>
-              <a href="https://traktrain.com/jacobfleming"><i class="fas fa-music social-icon"></i>Beat Store</a>
-              <a href="https://tiktok.com/1jacobfleming"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
-              <a href="https://x.com/1jacobfleming"><i class="fab fa-x-twitter social-icon"></i>X</a>
-            </span>
-          </li>
-          <li>
-            <strong>62serpens - Producer</strong>
-            <span class="artist-links">
-              <a href="https://instagram.com/62serpens"><i class="fab fa-instagram social-icon"></i>Instagram</a>
-              <a href="https://beatstars.com/62serpens"><i class="fas fa-music social-icon"></i>Beat Store</a>
-              <a href="https://youtube.com/62serpens"><i class="fab fa-youtube social-icon"></i>YouTube</a>
-              <a href="https://soundcloud.com/62serpens"><i class="fab fa-soundcloud social-icon"></i>Soundcloud</a>
-            </span>
-          </li>
-        </ul>
+        <div class="deployment">
+          <div class="deployment-header">
+            <div class="deployment-icon icon-homeuni">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h2>HOMEUniversity</h2>
+          </div>
+          <a href="https://homeuniversity.xyz" class="domain">
+            <i class="fas fa-external-link-alt"></i>
+            homeuniversity.xyz
+          </a>
+          <p class="description">Modernised Consciousness Ascension Educational Hub For Personal and Collective Sovereignty.</p>
+          <p class="description">Currently teaching via Skool: <a href="https://skool.com/homeuniversity" style="color: #1a73e8;">skool.com/homeuniversity</a></p>
+          
+          <ul class="courses">
+            <li><strong>MAJOR PILL: GIGAPILL 🧠 💊</strong> Brain/DNA - 3 Phases of consciousness mastery over 15 Levels. Spiritual Steroids 💉</li>
+            <li><strong>SUPPORTING STACK</strong></li>
+            <li>* MOGPILL 💪💊 2026 Aesthetics (Looksmaxing, Physique, Diet)</li>
+            <li>* CUTPILL ✂️ 💊 Routine Infant Calibration Debugging</li>
+            <li>* DICKPILL 🍆💊 Male Sexual Health Maxing And Energetic Clearing Protocols</li>
+          </ul>
+
+          <ul class="links">
+            <li><a href="https://instagram.com/homeuniversity.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a></li>
+            <li><a href="https://tiktok.com/@homeuniversity_xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a></li>
+            <li><a href="https://x.com/homeuni_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a></li>
+          </ul>
+        </div>
+
+        <div class="deployment">
+          <div class="deployment-header">
+            <div class="deployment-icon icon-flow">
+              <i class="fas fa-music"></i>
+            </div>
+            <h2>Flow Records</h2>
+          </div>
+          <a href="https://flowrecords.xyz" class="domain">
+            <i class="fas fa-external-link-alt"></i>
+            flowrecords.xyz
+          </a>
+          <p class="description">Modern Record Label</p>
+          
+          <ul class="links">
+            <li><a href="https://instagram.com/flowrecords.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a></li>
+            <li><a href="https://tiktok.com/@flowrecords.xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a></li>
+            <li><a href="https://x.com/flowrecords_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a></li>
+          </ul>
+
+          <ul class="courses">
+            <li><strong>Currently Signed:</strong></li>
+            <li>
+              <strong>Jacob Fleming - Producer</strong>
+              <div class="artist-links">
+                <a href="https://instagram.com/jacobfleming"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+                <a href="https://traktrain.com/jacobfleming"><i class="fas fa-music social-icon"></i>Beat Store</a>
+                <a href="https://tiktok.com/@1jacobfleming"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
+                <a href="https://x.com/1jacobfleming"><i class="fab fa-x-twitter social-icon"></i>X</a>
+              </div>
+            </li>
+            <li>
+              <strong>62serpens - Producer</strong>
+              <div class="artist-links">
+                <a href="https://instagram.com/62serpens"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+                <a href="https://beatstars.com/62serpens"><i class="fas fa-music social-icon"></i>Beat Store</a>
+                <a href="https://youtube.com/@62serpens"><i class="fab fa-youtube social-icon"></i>YouTube</a>
+                <a href="https://soundcloud.com/62serpens"><i class="fab fa-soundcloud social-icon"></i>Soundcloud</a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -277,10 +450,18 @@
   <script>
     const toggleBtn = document.getElementById('toggleBtn');
     const panel = document.getElementById('panel');
+    const specialButtons = document.getElementById('specialButtons');
 
     toggleBtn.addEventListener('click', () => {
-      panel.classList.toggle('active');
-      toggleBtn.textContent = panel.classList.contains('active') ? 'Hide Deployments' : 'Deployments';
+      const isActive = panel.classList.toggle('active');
+      specialButtons.classList.toggle('active');
+      toggleBtn.textContent = isActive ? 'Hide Deployments' : 'View Deployments';
+      
+      if (isActive) {
+        setTimeout(() => {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
     });
   </script>
 </body>
