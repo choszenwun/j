@@ -34,10 +34,6 @@
       color: #202124;
     }
 
-    .logo-red {
-      color: #ea4335;
-    }
-
     .nav-link {
       color: #5f6368;
       text-decoration: none;
@@ -122,28 +118,28 @@
       display: inline-block;
     }
 
-    /* 3D Blocks scattered on right */
+    /* GOD and ASCEND blocks */
     .blocks-container {
       position: relative;
-      width: 500px;
-      height: 500px;
+      width: 550px;
+      height: 550px;
     }
 
     .block {
       position: absolute;
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 72px;
+      font-size: 64px;
       font-weight: 700;
       color: #fff;
       box-shadow: 
-        0 8px 16px rgba(0,0,0,0.1),
-        inset -2px -2px 8px rgba(0,0,0,0.1),
-        inset 2px 2px 8px rgba(255,255,255,0.2);
+        0 12px 24px rgba(0,0,0,0.15),
+        inset -3px -3px 10px rgba(0,0,0,0.15),
+        inset 3px 3px 10px rgba(255,255,255,0.3);
       animation: float 3s ease-in-out infinite;
       transform-style: preserve-3d;
       font-family: 'Product Sans', sans-serif;
@@ -151,68 +147,114 @@
 
     @keyframes float {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
     }
 
-    .block-j {
-      background: #8b5cf6;
-      top: 80px;
-      right: 120px;
-      animation-delay: 0s;
-    }
-
-    .block-f {
-      background: #ec4899;
-      top: 20px;
-      right: 280px;
-      animation-delay: 0.5s;
-      width: 100px;
-      height: 100px;
-      font-size: 60px;
-    }
-
+    /* GOD - top row */
     .block-g {
-      background: #10b981;
-      top: 200px;
-      right: 60px;
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); /* Gold */
+      top: 60px;
+      right: 80px;
+      animation-delay: 0s;
+      width: 120px;
+      height: 120px;
+      font-size: 72px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      color: #fff;
+    }
+
+    .block-o {
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); /* Heavenly blue */
+      top: 20px;
+      right: 250px;
+      animation-delay: 0.5s;
+      width: 115px;
+      height: 115px;
+      font-size: 68px;
+      color: #0369a1;
+      text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
+    }
+
+    .block-d {
+      background: linear-gradient(135deg, #fae8ff 0%, #f0abfc 100%); /* Heavenly purple/pink */
+      top: 100px;
+      right: 400px;
       animation-delay: 1s;
       width: 110px;
       height: 110px;
       font-size: 66px;
+      color: #a21caf;
     }
 
-    .block-source {
-      background: #3b82f6;
-      top: 320px;
-      right: 180px;
+    /* ASCEND - bottom row */
+    .block-a {
+      background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); /* Lavender */
+      top: 240px;
+      right: 420px;
       animation-delay: 1.5s;
-      width: 90px;
-      height: 90px;
-      font-size: 48px;
-    }
-
-    .block-home {
-      background: #f59e0b;
-      top: 140px;
-      right: 320px;
-      animation-delay: 2s;
       width: 95px;
       height: 95px;
-      font-size: 52px;
+      font-size: 56px;
+      color: #6d28d9;
     }
 
-    .block-flow {
-      background: #ef4444;
-      top: 360px;
-      right: 340px;
+    .block-s {
+      background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%); /* Celestial teal */
+      top: 260px;
+      right: 310px;
+      animation-delay: 2s;
+      width: 90px;
+      height: 90px;
+      font-size: 52px;
+      color: #0f766e;
+    }
+
+    .block-c {
+      background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); /* Warm orange/peach */
+      top: 240px;
+      right: 210px;
       animation-delay: 2.5s;
-      width: 105px;
-      height: 105px;
-      font-size: 58px;
+      width: 85px;
+      height: 85px;
+      font-size: 50px;
+      color: #9a3412;
+    }
+
+    .block-e {
+      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); /* Soft pink */
+      top: 260px;
+      right: 120px;
+      animation-delay: 3s;
+      width: 88px;
+      height: 88px;
+      font-size: 52px;
+      color: #be185d;
+    }
+
+    .block-n {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); /* Mint green */
+      top: 380px;
+      right: 240px;
+      animation-delay: 3.5s;
+      width: 92px;
+      height: 92px;
+      font-size: 54px;
+      color: #065f46;
+    }
+
+    .block-d2 {
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); /* Light indigo */
+      top: 390px;
+      right: 60px;
+      animation-delay: 4s;
+      width: 90px;
+      height: 90px;
+      font-size: 52px;
+      color: #4338ca;
     }
 
     .cta-button {
-      background: #1a73e8;
+      background: #8b5cf6; /* Purple to match your J */
       color: #fff;
       border: none;
       padding: 12px 32px;
@@ -228,11 +270,11 @@
     }
 
     .cta-button:hover {
-      background: #1765cc;
-      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+      background: #7c3aed;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
     }
 
-    /* Deployments panel */
+    /* Deployments panel with icon cards */
     .deployments-section {
       display: none;
       padding: 80px 60px;
@@ -257,17 +299,34 @@
       border: 1px solid #dadce0;
       border-radius: 8px;
       padding: 32px;
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .deployment-card:hover {
-      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+      box-shadow: 0 2px 8px 0 rgba(60,64,67,0.3), 0 4px 12px 4px rgba(60,64,67,0.15);
+      transform: translateY(-4px);
     }
+
+    .deployment-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .icon-sourceos { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+    .icon-homeuni { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+    .icon-flow { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
 
     .deployment-card h2 {
       font-size: 24px;
-      font-weight: 400;
-      margin-bottom: 16px;
+      font-weight: 500;
+      margin-bottom: 12px;
       color: #202124;
     }
 
@@ -281,21 +340,27 @@
     .deployment-links {
       list-style: none;
       padding: 0;
-    }
-
-    .deployment-links li {
-      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .deployment-links a {
       color: #1a73e8;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       transition: text-decoration 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .deployment-links a:hover {
       text-decoration: underline;
+    }
+
+    .social-icon {
+      font-size: 14px;
     }
 
     .special-actions {
@@ -313,37 +378,43 @@
 
     .action-card {
       background: #fff;
-      border: 2px solid #1a73e8;
+      border: 2px solid #8b5cf6;
       border-radius: 8px;
       padding: 32px 48px;
       text-align: center;
       transition: all 0.3s ease;
       text-decoration: none;
       color: #202124;
+      min-width: 280px;
     }
 
     .action-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(26, 115, 232, 0.2);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
     }
 
     .action-card h3 {
       font-size: 20px;
       font-weight: 500;
       margin-bottom: 8px;
-      color: #1a73e8;
+      color: #8b5cf6;
+    }
+
+    .action-card p {
+      font-size: 14px;
+      color: #5f6368;
     }
 
     .action-card.wife-card {
-      border-color: #ea4335;
+      border-color: #ec4899;
     }
 
     .action-card.wife-card h3 {
-      color: #ea4335;
+      color: #ec4899;
     }
 
     .action-card.wife-card:hover {
-      box-shadow: 0 8px 24px rgba(234, 67, 53, 0.2);
+      box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
     }
 
     @media (max-width: 968px) {
@@ -392,10 +463,8 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo">
-      Jacob Fleming
-    </div>
-    <a href="#" class="nav-link">Deployments</a>
+    <div class="logo">Jacob Fleming</div>
+    <a href="#" class="nav-link" id="navLink">Deployments</a>
   </header>
 
   <section class="hero">
@@ -405,9 +474,7 @@
       <h1>is for Jacob</h1>
       
       <p class="tagline">
-        As I wrote in my original vision, "I never thought like a billionaire, maybe that was their problem."
-        <br><br>
-        Building SourceOS, HOMEUniversity, and Flow Records — modernised consciousness frameworks for personal and collective sovereignty.
+        "I never thought like a billionaire, maybe that was their problem."
       </p>
       
       <a href="#" class="more-link" id="moreLink">more</a>
@@ -415,17 +482,23 @@
       <div class="signature">Jacob Fleming</div>
       <div class="signature-name">Jacob Fleming</div>
 
-      <button class="cta-button" id="deploymentsBtn">View All Deployments</button>
+      <button class="cta-button" id="deploymentsBtn">View Deployments</button>
     </div>
 
     <div class="hero-right">
       <div class="blocks-container">
-        <div class="block block-j">J</div>
-        <div class="block block-f">F</div>
+        <!-- GOD -->
         <div class="block block-g">G</div>
-        <div class="block block-source">S</div>
-        <div class="block block-home">H</div>
-        <div class="block block-flow">F</div>
+        <div class="block block-o">O</div>
+        <div class="block block-d">D</div>
+        
+        <!-- ASCEND -->
+        <div class="block block-a">A</div>
+        <div class="block block-s">S</div>
+        <div class="block block-c">C</div>
+        <div class="block block-e">E</div>
+        <div class="block block-n">N</div>
+        <div class="block block-d2">D</div>
       </div>
     </div>
   </section>
@@ -433,37 +506,46 @@
   <section class="deployments-section" id="deploymentsSection">
     <div class="deployments-grid">
       <div class="deployment-card">
+        <div class="deployment-icon icon-sourceos">
+          <i class="fas fa-brain"></i>
+        </div>
         <h2>SourceOS</h2>
         <p>Modernised Debloated Spiritual Consciousness Framework System For Personal and Collective Sovereignty</p>
-        <ul class="deployment-links">
-          <li><a href="https://sourceos.xyz">sourceos.xyz →</a></li>
-          <li><a href="https://instagram.com/sourceos.xyz">Instagram</a></li>
-          <li><a href="https://tiktok.com/@sourceos.xyz">TikTok</a></li>
-          <li><a href="https://x.com/sourceos_xyz">X/Twitter</a></li>
-        </ul>
+        <div class="deployment-links">
+          <a href="https://sourceos.xyz"><i class="fas fa-external-link-alt social-icon"></i>sourceos.xyz</a>
+          <a href="https://instagram.com/sourceos.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+          <a href="https://tiktok.com/@sourceos.xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
+          <a href="https://x.com/sourceos_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a>
+        </div>
       </div>
 
       <div class="deployment-card">
+        <div class="deployment-icon icon-homeuni">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
         <h2>HOMEUniversity</h2>
         <p>Modernised Consciousness Ascension Educational Hub. GIGAPILL, MOGPILL, CUTPILL, DICKPILL — consciousness mastery protocols.</p>
-        <ul class="deployment-links">
-          <li><a href="https://homeuniversity.xyz">homeuniversity.xyz →</a></li>
-          <li><a href="https://skool.com/homeuniversity">Skool Community</a></li>
-          <li><a href="https://instagram.com/homeuniversity.xyz">Instagram</a></li>
-          <li><a href="https://tiktok.com/@homeuniversity_xyz">TikTok</a></li>
-          <li><a href="https://x.com/homeuni_xyz">X/Twitter</a></li>
-        </ul>
+        <div class="deployment-links">
+          <a href="https://homeuniversity.xyz"><i class="fas fa-external-link-alt social-icon"></i>homeuniversity.xyz</a>
+          <a href="https://skool.com/homeuniversity"><i class="fas fa-school social-icon"></i>Skool</a>
+          <a href="https://instagram.com/homeuniversity.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+          <a href="https://tiktok.com/@homeuniversity_xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
+          <a href="https://x.com/homeuni_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a>
+        </div>
       </div>
 
       <div class="deployment-card">
+        <div class="deployment-icon icon-flow">
+          <i class="fas fa-music"></i>
+        </div>
         <h2>Flow Records</h2>
         <p>Modern Record Label. Currently signed: Jacob Fleming (Producer) and 62serpens (Producer)</p>
-        <ul class="deployment-links">
-          <li><a href="https://flowrecords.xyz">flowrecords.xyz →</a></li>
-          <li><a href="https://instagram.com/flowrecords.xyz">Instagram</a></li>
-          <li><a href="https://tiktok.com/@flowrecords.xyz">TikTok</a></li>
-          <li><a href="https://x.com/flowrecords_xyz">X/Twitter</a></li>
-        </ul>
+        <div class="deployment-links">
+          <a href="https://flowrecords.xyz"><i class="fas fa-external-link-alt social-icon"></i>flowrecords.xyz</a>
+          <a href="https://instagram.com/flowrecords.xyz"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+          <a href="https://tiktok.com/@flowrecords.xyz"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
+          <a href="https://x.com/flowrecords_xyz"><i class="fab fa-x-twitter social-icon"></i>X</a>
+        </div>
       </div>
     </div>
 
@@ -483,20 +565,20 @@
   <script>
     const deploymentsBtn = document.getElementById('deploymentsBtn');
     const moreLink = document.getElementById('moreLink');
+    const navLink = document.getElementById('navLink');
     const deploymentsSection = document.getElementById('deploymentsSection');
     const specialActions = document.getElementById('specialActions');
 
-    function showDeployments() {
+    function showDeployments(e) {
+      e.preventDefault();
       deploymentsSection.classList.add('active');
       specialActions.classList.add('active');
       deploymentsSection.scrollIntoView({ behavior: 'smooth' });
     }
 
     deploymentsBtn.addEventListener('click', showDeployments);
-    moreLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      showDeployments();
-    });
+    moreLink.addEventListener('click', showDeployments);
+    navLink.addEventListener('click', showDeployments);
   </script>
 </body>
 </html>
