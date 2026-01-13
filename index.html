@@ -62,6 +62,42 @@
       transform: translateY(-2px); 
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
+    .coaching-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      border: none;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 0 12px 24px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .coaching-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    }
+    .wife-btn {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: #fff;
+      border: none;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 0 12px 24px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .wife-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245, 87, 108, 0.3);
+    }
     .deployments-panel { 
       display: none; 
       background: #fff; 
@@ -133,6 +169,11 @@
       font-weight: 600;
       opacity: 1;
     }
+    .artist-links {
+      display: block;
+      margin-top: 8px;
+      margin-left: 20px;
+    }
     .artist-links a {
       margin-right: 16px;
       font-size: 0.98rem;
@@ -146,6 +187,10 @@
     @media (max-width: 768px) {
       .container { padding: 80px 20px 60px; }
       .deployments-panel { padding: 36px 24px; }
+      .coaching-btn, .wife-btn {
+        display: block;
+        margin: 12px auto;
+      }
     }
   </style>
 </head>
@@ -154,6 +199,11 @@
     <img src="images/j.jpg" alt="Purple J Building Block" class="j-logo">
     <h1>is For Jacob</h1>
     <p class="quote">"I never thought like a billionaire, maybe that was their problem."</p>
+
+    <div style="margin-bottom: 48px;">
+      <a href="coaching.html" class="coaching-btn">Interdimensional Ascension Coaching</a>
+      <a href="wife-application.html" class="wife-btn">Wife Application</a>
+    </div>
 
     <button class="toggle" id="toggleBtn">Deployments</button>
 
@@ -184,40 +234,42 @@
         <ul class="links">
           <li><a href="https://instagram.com/homeuniversity.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/homeuniversity.xyz</a></li>
           <li><a href="https://tiktok.com/homeuniversity_xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/homeuniversity.xyz</a></li>
-          <li><a href="https://x.com/homeuniversity_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/homeuni_xyz</a></li>
+          <li><a href="https://x.com/homeuni_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/homeuni_xyz</a></li>
         </ul>
       </div>
 
-     <div class="section">
-<h2>Flow Records</h2>
-<a href="[https://flowrecords.xyz](https://flowrecords.xyz/)" class="domain"><i class="fas fa-globe social-icon"></i>flowrecords.xyz</a>
-</ul>
-<ul class="links">
-<li><a href="[https://instagram.com/homeuniversity.xyz](https://instagram.com/homeuniversity.xyz)"><i class="fab fa-instagram social-icon"></i>[instagram.com/flowrecords.xyz](http://instagram.com/flowrecords.xyz)</a></li>
-<li><a href="[https://tiktok.com/homeuniversity_xyz](https://tiktok.com/homeuniversity_xyz)"><i class="fab fa-tiktok social-icon"></i>[tiktok.com/flowrecords.xyz](http://tiktok.com/flowrecords.xyz)</a></li>
-<li><a href="[https://x.com/homeuniversity_xyz](https://x.com/homeuniversity_xyz)"><i class="fab fa-x-twitter social-icon"></i>[x.com/flowrecords_xyz](http://x.com/flowrecords_xyz)</a></li>
-</ul>
-<p class="description">Modern Record Label</p>
-<p>Currently Signed:</p>
-<ul class="courses">
-<li><strong>Jacob Fleming - Producer</strong>
-<span class="artist-links">
-<a href="[https://instagram.com/jacobfleming](https://instagram.com/jacobfleming)"><i class="fab fa-instagram social-icon"></i>Instagram</a>
-<a href="[https://traktrain.com/jacobfleming](https://traktrain.com/jacobfleming)"><i class="fas fa-music social-icon"></i>Beat Store</a>
-<a href="[https://tiktok.com/1jacobfleming](https://tiktok.com/1jacobfleming)"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
-<a href="[https://x.com/1jacobfleming](https://x.com/1jacobfleming)"><i class="fab fa-x-twitter social-icon"></i>X</a>
-</span>
-</li>
-<li><strong>62serpens - Producer</strong>
-<span class="artist-links">
-<a href="[https://instagram.com/jacobfleming](https://instagram.com/jacobfleming)"><i class="fab fa-instagram social-icon"></i>Instagram</a>
-<a href="[https://beatstars.com/62serpens](https://beatstars.com/62serpens)"><i class="fas fa-music social-icon"></i>Beat Store</a>
-<a href="[https://youtube.com/62serpens](https://youtube.com/62serpens)"><i class="fab fa-youtube social-icon"></i>YouTube</a>
-<a href="[https://soundcloud.com/62serpens](https://soundcloud.com/62serpens)"><i class="fab fa-soundcloud social-icon"></i>Soundcloud</a>
-</span>
-</li>
-</ul>
-</div>
+      <div class="section">
+        <h2>Flow Records</h2>
+        <a href="https://flowrecords.xyz" class="domain"><i class="fas fa-globe social-icon"></i>flowrecords.xyz</a>
+        <p class="description">Modern Record Label</p>
+        <ul class="links">
+          <li><a href="https://instagram.com/flowrecords.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/flowrecords.xyz</a></li>
+          <li><a href="https://tiktok.com/flowrecords.xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/flowrecords.xyz</a></li>
+          <li><a href="https://x.com/flowrecords_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/flowrecords_xyz</a></li>
+        </ul>
+        <p style="margin-top: 24px;">Currently Signed:</p>
+        <ul class="courses">
+          <li>
+            <strong>Jacob Fleming - Producer</strong>
+            <span class="artist-links">
+              <a href="https://instagram.com/jacobfleming"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+              <a href="https://traktrain.com/jacobfleming"><i class="fas fa-music social-icon"></i>Beat Store</a>
+              <a href="https://tiktok.com/1jacobfleming"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
+              <a href="https://x.com/1jacobfleming"><i class="fab fa-x-twitter social-icon"></i>X</a>
+            </span>
+          </li>
+          <li>
+            <strong>62serpens - Producer</strong>
+            <span class="artist-links">
+              <a href="https://instagram.com/62serpens"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+              <a href="https://beatstars.com/62serpens"><i class="fas fa-music social-icon"></i>Beat Store</a>
+              <a href="https://youtube.com/62serpens"><i class="fab fa-youtube social-icon"></i>YouTube</a>
+              <a href="https://soundcloud.com/62serpens"><i class="fab fa-soundcloud social-icon"></i>Soundcloud</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <p class="footer">© 2026 Jacob Fleming</p>
   </div>
