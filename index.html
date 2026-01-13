@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jacob Fleming: Musician, Producer, Theorist, Builder">
+  <title>is For Jacob</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+      background: #fafafa; 
+      color: #111; 
+      line-height: 1.6; 
+    }
+    .container { 
+      max-width: 900px; 
+      margin: 0 auto; 
+      padding: 100px 24px 80px; 
+      text-align: center; 
+    }
+    .j-logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 32px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 { 
+      font-size: clamp(4.5rem, 12vw, 9rem); 
+      font-weight: 700; 
+      letter-spacing: -0.06em; 
+      margin-bottom: 12px; 
+    }
+    .quote { 
+      font-size: clamp(1.2rem, 3.5vw, 1.5rem); 
+      font-weight: 400; 
+      opacity: 0.75; 
+      max-width: 720px;
+      margin: 0 auto 80px;
+    }
+    .toggle { 
+      background: #000; 
+      color: #fff; 
+      border: none; 
+      padding: 16px 40px; 
+      font-size: 1.1rem; 
+      font-weight: 500; 
+      border-radius: 12px; 
+      cursor: pointer; 
+      transition: all 0.25s ease; 
+      margin: 0 auto 48px;
+      display: inline-block;
+    }
+    .toggle:hover { 
+      background: #222; 
+      transform: translateY(-2px); 
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .deployments-panel { 
+      display: none; 
+      background: #fff; 
+      border: 1px solid #eee; 
+      border-radius: 16px; 
+      padding: 48px 40px; 
+      text-align: left; 
+      box-shadow: 0 12px 48px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .deployments-panel.active { 
+      display: block; 
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section { margin-bottom: 64px; }
+    .section:last-child { margin-bottom: 0; }
+    .section h2 { 
+      font-size: 2.2rem; 
+      font-weight: 600; 
+      margin-bottom: 12px; 
+    }
+    .domain {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .description {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+    .links { 
+      list-style: none; 
+      padding: 0; 
+    }
+    .links li { 
+      margin-bottom: 14px; 
+    }
+    .links a { 
+      color: #111; 
+      text-decoration: none; 
+      font-weight: 500; 
+      transition: opacity 0.2s; 
+      display: inline-flex;
+      align-items: center;
+    }
+    .links a:hover { opacity: 0.65; }
+    .social-icon { 
+      font-size: 1.25rem; 
+      margin-right: 10px; 
+      opacity: 0.85; 
+    }
+    .courses {
+      list-style: none;
+      padding-left: 0;
+      margin: 20px 0;
+      font-size: 1.05rem;
+    }
+    .courses li {
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+    .courses li strong {
+      font-weight: 600;
+      opacity: 1;
+    }
+    .artist-links a {
+      margin-right: 16px;
+      font-size: 0.98rem;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.5;
+      margin-top: 100px;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 80px 20px 60px; }
+      .deployments-panel { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/j.png" alt="Purple J Building Block" class="j-logo">
+    <h1>is For Jacob</h1>
+    <p class="quote">"I never thought like a millionaire, maybe that was their problem."</p>
+
+    <button class="toggle" id="toggleBtn">Deployments</button>
+
+    <div class="deployments-panel" id="panel">
+      <div class="section">
+        <h2>SourceOS</h2>
+        <a href="https://sourceos.xyz" class="domain"><i class="fas fa-globe social-icon"></i>sourceos.xyz</a>
+        <p class="description">Modernised Debloated Spiritual Consciousness Framework System For Personal and Collective Sovereignty</p>
+        <ul class="links">
+          <li><a href="https://instagram.com/sourceos.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/sourceos.xyz</a></li>
+          <li><a href="https://tiktok.com/sourceos.xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/sourceos.xyz</a></li>
+          <li><a href="https://x.com/sourceos_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/sourceos_xyz</a></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>HOMEUniversity</h2>
+        <a href="https://homeuniversity.xyz" class="domain"><i class="fas fa-globe social-icon"></i>homeuniversity.xyz</a>
+        <p class="description">Modernised Consciousness Ascension Educational Hub For Personal and Collective Sovereignty. Currently teaching via Skool: <a href="https://skool.com/homeuniversity">skool.com/homeuniversity</a></p>
+        <p>Current Courses:</p>
+        <ul class="courses">
+          <li><strong>MAJOR PILL: GIGAPILL 🧠 💊</strong> Brain/DNA - 3 Phases of consciousness mastery over 15 Levels. Spiritual Steroids 💉</li>
+          <li><strong>SUPPORTING STACK</strong></li>
+          <li>* MOGPILL 💪💊 2026 Aesthetics (Looksmaxing, Physique, Diet)</li>
+          <li>* CUTPILL ✂️ 💊 Routine Infant Male Calibration DEBUG</li>
+          <li>* DICKPILL 🍆💊 Penile Health Maxing And Chakra Clearing Protocols</li>
+        </ul>
+        <ul class="links">
+          <li><a href="https://instagram.com/homeuniversity.xyz"><i class="fab fa-instagram social-icon"></i>instagram.com/homeuniversity.xyz</a></li>
+          <li><a href="https://tiktok.com/homeuniversity_xyz"><i class="fab fa-tiktok social-icon"></i>tiktok.com/homeuniversity_xyz</a></li>
+          <li><a href="https://x.com/homeuniversity_xyz"><i class="fab fa-x-twitter social-icon"></i>x.com/homeuniversity_xyz</a></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Flow Records</h2>
+        <a href="https://flowrecords.xyz" class="domain"><i class="fas fa-globe social-icon"></i>flowrecords.xyz</a>
+        <p class="description">Modern Record Label</p>
+        <p>Currently Signed:</p>
+        <ul class="courses">
+          <li><strong>Jacob Fleming - Producer</strong>
+            <span class="artist-links">
+              <a href="https://instagram.com/jacobfleming"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+              <a href="https://traktrain.com/jacobfleming"><i class="fas fa-music social-icon"></i>Beat Store</a>
+              <a href="https://tiktok.com/1jacobfleming"><i class="fab fa-tiktok social-icon"></i>TikTok</a>
+              <a href="https://x.com/1jacobfleming"><i class="fab fa-x-twitter social-icon"></i>X</a>
+            </span>
+          </li>
+          <li><strong>62serpens - Producer</strong>
+            <span class="artist-links">
+              <a href="https://instagram.com/jacobfleming"><i class="fab fa-instagram social-icon"></i>Instagram</a>
+              <a href="https://beatstars.com/62serpens"><i class="fas fa-music social-icon"></i>Beat Store</a>
+              <a href="https://youtube.com/62serpens"><i class="fab fa-youtube social-icon"></i>YouTube</a>
+              <a href="https://soundcloud.com/62serpens"><i class="fab fa-soundcloud social-icon"></i>Soundcloud</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Personal Coaching</h2>
+        <p class="description">One-on-one guidance for consciousness ascension, sovereignty debugging, optimization, and rapid leveling up.</p>
+        <ul class="links">
+          <li><a href="https://personal.jacobfleming.xyz"><i class="fas fa-user-check social-icon"></i>Apply for Personal Coaching</a></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Wife Application Form</h2>
+        <p class="description">Intentional alignment application as part of ascending Christian consciousness. Values, growth, partnership.</p>
+        <ul class="links">
+          <li><a href="https://wife.jacobfleming.xyz"><i class="fas fa-heart social-icon"></i>Submit Wife Application</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer">© 2026 Jacob Fleming</p>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const panel = document.getElementById('panel');
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('active');
+      toggleBtn.textContent = panel.classList.contains('active') ? 'Hide Deployments' : 'Deployments';
+    });
+  </script>
+</body>
+</html>
