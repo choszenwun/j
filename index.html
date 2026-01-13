@@ -32,6 +32,12 @@
       font-size: 24px;
       font-weight: 400;
       color: #202124;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .logo:hover {
+      color: #8b5cf6;
     }
 
     .nav-link {
@@ -46,7 +52,7 @@
       color: #202124;
     }
 
-    /* BTC Donation Modal */
+    /* Modals */
     .modal {
       display: none;
       position: fixed;
@@ -68,7 +74,10 @@
       background: #fff;
       padding: 48px;
       border-radius: 16px;
-      max-width: 500px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
       text-align: center;
       box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
       position: relative;
@@ -92,36 +101,84 @@
 
     .modal h2 {
       font-size: 28px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: #202124;
     }
 
-    .btc-address {
-      background: #f8f9fa;
-      padding: 16px;
-      border-radius: 8px;
-      font-family: monospace;
-      font-size: 14px;
-      word-break: break-all;
-      margin: 20px 0;
-      border: 2px solid #dadce0;
+    .modal-subtitle {
+      font-size: 16px;
+      color: #5f6368;
+      margin-bottom: 32px;
     }
 
-    .copy-btn {
-      background: #8b5cf6;
-      color: #fff;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 8px;
-      cursor: pointer;
+    .wallet-group {
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .wallet-label {
       font-size: 14px;
       font-weight: 500;
-      margin-top: 16px;
+      color: #202124;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .wallet-address {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 12px;
+      word-break: break-all;
+      border: 2px solid #dadce0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copy-icon {
+      color: #5f6368;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .copy-icon:hover {
+      color: #8b5cf6;
+    }
+
+    .social-links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .social-link-btn {
+      background: #f8f9fa;
+      border: 1px solid #dadce0;
+      padding: 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #202124;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
       transition: all 0.2s;
     }
 
-    .copy-btn:hover {
-      background: #7c3aed;
+    .social-link-btn:hover {
+      background: #8b5cf6;
+      color: #fff;
+      border-color: #8b5cf6;
+    }
+
+    .social-link-btn i {
+      font-size: 20px;
     }
 
     .hero {
@@ -208,7 +265,6 @@
       display: inline-block;
     }
 
-    /* God Earth Image */
     .godearth-image {
       max-width: 550px;
       width: 100%;
@@ -228,11 +284,11 @@
     }
 
     .family-grid {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
+      gap: 32px;
     }
 
     .family-card {
@@ -253,6 +309,14 @@
       border: 2px dashed #dadce0;
     }
 
+    .family-card.mentorship-card {
+      border: 2px solid #8b5cf6;
+    }
+
+    .family-card.wife-card {
+      border: 2px solid #ec4899;
+    }
+
     .family-icon {
       width: 56px;
       height: 56px;
@@ -269,6 +333,8 @@
     .icon-homeuni { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
     .icon-flow { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
     .icon-secret { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); }
+    .icon-mentorship { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+    .icon-wife { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
 
     .family-card h2 {
       font-size: 24px;
@@ -333,58 +399,35 @@
       font-size: 14px;
     }
 
-    .special-actions {
-      max-width: 1200px;
-      margin: 60px auto 0;
-      display: none;
-      gap: 20px;
-    }
-
-    .special-actions.active {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .action-card {
-      background: #fff;
-      border: 2px solid #8b5cf6;
-      border-radius: 8px;
-      padding: 32px 48px;
-      text-align: center;
-      transition: all 0.3s ease;
+    .card-cta {
+      display: inline-block;
+      background: #8b5cf6;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
       text-decoration: none;
-      color: #202124;
-      min-width: 280px;
-    }
-
-    .action-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
-    }
-
-    .action-card h3 {
-      font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: #8b5cf6;
-    }
-
-    .action-card p {
       font-size: 14px;
-      color: #5f6368;
+      font-weight: 500;
+      margin-top: 12px;
+      transition: all 0.2s;
     }
 
-    .action-card.wife-card {
-      border-color: #ec4899;
+    .card-cta:hover {
+      background: #7c3aed;
     }
 
-    .action-card.wife-card h3 {
-      color: #ec4899;
+    .card-cta.wife-cta {
+      background: #ec4899;
     }
 
-    .action-card.wife-card:hover {
-      box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
+    .card-cta.wife-cta:hover {
+      background: #db2777;
+    }
+
+    @media (max-width: 1200px) {
+      .family-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
     }
 
     @media (max-width: 968px) {
@@ -417,6 +460,10 @@
       .family-grid {
         grid-template-columns: 1fr;
       }
+
+      .social-links-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
@@ -427,26 +474,77 @@
   </style>
 </head>
 <body>
-  <!-- BTC Donation Modal -->
+  <!-- Investor Modal -->
   <div class="modal" id="investorModal">
     <div class="modal-content">
-      <button class="modal-close" id="closeModal">&times;</button>
-      <h2>Support the Mission 🚀</h2>
-      <p style="color: #5f6368; margin-bottom: 16px;">
-        If you believe in what I'm building, you can support with Bitcoin:
-      </p>
-      <div class="btc-address" id="btcAddress">
-        [YOUR_BITCOIN_ADDRESS_HERE]
+      <button class="modal-close" id="closeInvestorModal">&times;</button>
+      <h2>fw the vision? 🚀</h2>
+      <p class="modal-subtitle">Support the mission with crypto</p>
+      
+      <div class="wallet-group">
+        <span class="wallet-label">Bitcoin Wallet 1</span>
+        <div class="wallet-address">
+          <span id="btc1">[YOUR_BTC_WALLET_1]</span>
+          <i class="fas fa-copy copy-icon" onclick="copyWallet('btc1')"></i>
+        </div>
       </div>
-      <button class="copy-btn" id="copyBtn">Copy Address</button>
-      <p style="color: #10b981; margin-top: 16px; font-size: 14px; display: none;" id="copiedMsg">
-        ✓ Copied to clipboard!
-      </p>
+
+      <div class="wallet-group">
+        <span class="wallet-label">Bitcoin Wallet 2</span>
+        <div class="wallet-address">
+          <span id="btc2">[YOUR_BTC_WALLET_2]</span>
+          <i class="fas fa-copy copy-icon" onclick="copyWallet('btc2')"></i>
+        </div>
+      </div>
+
+      <div class="wallet-group">
+        <span class="wallet-label">Solana Wallet</span>
+        <div class="wallet-address">
+          <span id="sol">[YOUR_SOLANA_WALLET]</span>
+          <i class="fas fa-copy copy-icon" onclick="copyWallet('sol')"></i>
+        </div>
+      </div>
+
+      <div class="wallet-group">
+        <span class="wallet-label">Ethereum Wallet</span>
+        <div class="wallet-address">
+          <span id="eth">[YOUR_ETH_WALLET]</span>
+          <i class="fas fa-copy copy-icon" onclick="copyWallet('eth')"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Links Modal -->
+  <div class="modal" id="socialModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeSocialModal">&times;</button>
+      <h2>Connect with Jacob</h2>
+      <p class="modal-subtitle">Follow the journey</p>
+      
+      <div class="social-links-grid">
+        <a href="https://youtube.com/@[YOUR_YOUTUBE]" class="social-link-btn" target="_blank">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+        <a href="https://instagram.com/jacobfleming" class="social-link-btn" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="https://x.com/1jacobfleming" class="social-link-btn" target="_blank">
+          <i class="fab fa-x-twitter"></i>
+          <span>X / Twitter</span>
+        </a>
+        <a href="https://tiktok.com/@1jacobfleming" class="social-link-btn" target="_blank">
+          <i class="fab fa-tiktok"></i>
+          <span>TikTok</span>
+        </a>
+      </div>
     </div>
   </div>
 
   <header class="header">
-    <div class="logo">Jacob Fleming</div>
+    <div class="logo" id="logoLink">Jacob Fleming</div>
     <span class="nav-link" id="investorsLink">Investors</span>
   </header>
 
@@ -467,7 +565,7 @@
     </div>
 
     <div class="hero-right">
-      <img src="images/godearth.png" alt="God Earth" class="godearth-image">
+      <img src="images/godearth1.png" alt="God Earth" class="godearth-image">
     </div>
   </section>
 
@@ -532,36 +630,44 @@
         <h2>Coming Soon</h2>
         <p style="font-style: italic;">A new tool is being built. Stay tuned...</p>
       </div>
-    </div>
 
-    <div class="special-actions" id="specialActions">
-      <a href="mentorship.html" class="action-card">
-        <h3>Interdimensional Ascension Mentorship</h3>
-        <p>Private 1-on-1 consciousness work</p>
-      </a>
+      <div class="family-card mentorship-card">
+        <div class="family-icon icon-mentorship">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h2>Interdimensional Ascension Mentorship</h2>
+        <p>Private 1-on-1 consciousness work. Direct transmission. Zero cope. Maximum ROI. Transform your reality through personalized guidance.</p>
+        <a href="mentorship.html" class="card-cta">Apply for Mentorship</a>
+      </div>
 
-      <a href="wife-application.html" class="action-card wife-card">
-        <h3>Wife Application 💕</h3>
-        <p>Building traditional families</p>
-      </a>
+      <div class="family-card wife-card">
+        <div class="family-icon icon-wife">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h2>Wife Application 💕</h2>
+        <p>Building traditional families. Seeking alignment with values, consciousness work, and genuine desire for motherhood and partnership.</p>
+        <a href="wife-application.html" class="card-cta wife-cta">Submit Application</a>
+      </div>
     </div>
   </section>
 
   <script>
     const moreBtn = document.getElementById('moreBtn');
     const familySection = document.getElementById('familySection');
-    const specialActions = document.getElementById('specialActions');
+    
+    // Investor modal
     const investorsLink = document.getElementById('investorsLink');
     const investorModal = document.getElementById('investorModal');
-    const closeModal = document.getElementById('closeModal');
-    const copyBtn = document.getElementById('copyBtn');
-    const btcAddress = document.getElementById('btcAddress');
-    const copiedMsg = document.getElementById('copiedMsg');
+    const closeInvestorModal = document.getElementById('closeInvestorModal');
+    
+    // Social modal
+    const logoLink = document.getElementById('logoLink');
+    const socialModal = document.getElementById('socialModal');
+    const closeSocialModal = document.getElementById('closeSocialModal');
 
     // Show family section
     moreBtn.addEventListener('click', () => {
       familySection.classList.add('active');
-      specialActions.classList.add('active');
       familySection.scrollIntoView({ behavior: 'smooth' });
     });
 
@@ -570,28 +676,47 @@
       investorModal.classList.add('active');
     });
 
-    // Close modal
-    closeModal.addEventListener('click', () => {
+    closeInvestorModal.addEventListener('click', () => {
       investorModal.classList.remove('active');
     });
 
-    // Close modal on outside click
     investorModal.addEventListener('click', (e) => {
       if (e.target === investorModal) {
         investorModal.classList.remove('active');
       }
     });
 
-    // Copy BTC address
-    copyBtn.addEventListener('click', () => {
-      const address = btcAddress.textContent;
+    // Show social modal
+    logoLink.addEventListener('click', () => {
+      socialModal.classList.add('active');
+    });
+
+    closeSocialModal.addEventListener('click', () => {
+      socialModal.classList.remove('active');
+    });
+
+    socialModal.addEventListener('click', (e) => {
+      if (e.target === socialModal) {
+        socialModal.classList.remove('active');
+      }
+    });
+
+    // Copy wallet address
+    function copyWallet(id) {
+      const element = document.getElementById(id);
+      const address = element.textContent;
       navigator.clipboard.writeText(address).then(() => {
-        copiedMsg.style.display = 'block';
+        const icon = element.nextElementSibling;
+        icon.classList.remove('fa-copy');
+        icon.classList.add('fa-check');
+        icon.style.color = '#10b981';
         setTimeout(() => {
-          copiedMsg.style.display = 'none';
+          icon.classList.remove('fa-check');
+          icon.classList.add('fa-copy');
+          icon.style.color = '';
         }, 2000);
       });
-    });
+    }
   </script>
 </body>
 </html>
