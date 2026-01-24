@@ -400,64 +400,7 @@
       color: var(--accent-gold);
     }
 
-    /* Investment/Price Section */
-    .investment-section {
-      margin: 80px 0;
-      padding: 60px 40px;
-      background: linear-gradient(135deg, rgba(58,12,163,0.4) 0%, rgba(10,1,24,0.8) 100%);
-      border: 3px solid var(--accent-gold);
-      box-shadow: 
-        0 0 60px rgba(255,214,10,0.3),
-        inset 0 0 60px rgba(255,214,10,0.1);
-      text-align: center;
-      position: relative;
-    }
 
-    .investment-section::before {
-      content: '⬡ ⬡ ⬡';
-      position: absolute;
-      top: -18px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--deep-space);
-      padding: 0 30px;
-      color: var(--accent-gold);
-      font-size: 16px;
-      letter-spacing: 16px;
-      text-shadow: 0 0 20px var(--accent-gold);
-    }
-
-    .investment-section h2 {
-      margin-bottom: 24px;
-      font-size: 2.2rem;
-    }
-
-    .price-display {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 4rem;
-      font-weight: 900;
-      color: var(--accent-gold);
-      margin: 32px 0;
-      text-shadow: 0 0 30px rgba(255,214,10,0.6);
-      line-height: 1;
-    }
-
-    .price-display span {
-      font-size: 2rem;
-      opacity: 0.7;
-    }
-
-    .investment-details {
-      font-size: 1.1rem;
-      color: rgba(224,224,255,0.8);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      line-height: 1.8;
-    }
-
-    .investment-details strong {
-      color: white;
-    }
 
     /* CTA Section */
     .cta-section {
@@ -817,19 +760,7 @@
       </div>
     </div>
 
-    <!-- INVESTMENT SECTION -->
-    <div class="investment-section">
-      <h2>Investment</h2>
-      <div class="price-display">
-        <span>$</span>5,000<span>/month</span>
-      </div>
-      <div class="investment-details">
-        <p><strong>3-month minimum commitment.</strong> This is high-touch, personalized work. Weekly calls, unlimited Telegram access, custom protocols, and full system overhaul.</p>
-        <p>If you're not ready to invest in your own transformation, this isn't the right time. HOMEUniversity is $59/month—start there.</p>
-      </div>
-    </div>
-
-    <!-- STATUS -->
+<!-- STATUS -->
     <div class="status">
       <span class="status-label">◆ CURRENT STATUS ◆</span>
       <span class="status-value full">SLOTS FULL</span>
@@ -843,7 +774,7 @@
     <!-- CTA -->
     <div class="cta-section">
       <h2>Application</h2>
-      <p>This is premium, personalized work. If you're looking for cheap, join HOMEUniversity. If you're ready for acceleration, apply below.</p>
+      <p>This is premium, personalized work. If you're ready for rapid consciousness acceleration and transformation, apply below.</p>
 
       <!-- APPLICATION FORM -->
       <form 
@@ -907,8 +838,8 @@
         </div>
 
         <div class="form-group">
-          <label for="commitment">◆ FINANCIAL COMMITMENT ACKNOWLEDGMENT *</label>
-          <textarea id="commitment" name="commitment" placeholder="Confirm you understand the investment ($5k/month, 3-month minimum = $15k total commitment) and are financially prepared." required></textarea>
+          <label for="investment">◆ HOW MUCH ARE YOU WILLING TO INVEST IN THIS TRANSFORMATION? *</label>
+          <input type="text" id="investment" name="investment" placeholder="$X per month or total budget" required>
         </div>
 
         <button type="submit" class="submit-btn">
