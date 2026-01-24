@@ -293,14 +293,67 @@
       margin-bottom: 24px;
     }
 
-    .cta-section p {
+    .cta-section > p {
       max-width: 500px;
       margin: 0 auto 32px;
     }
 
-    .cta-btn {
-      display: inline-block;
-      padding: 20px 64px;
+    /* Application Form */
+    .application-form {
+      max-width: 560px;
+      margin: 48px auto 0;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 32px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 16px 20px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      background: white;
+      border: 2px solid var(--border);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      background: var(--paper);
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 24px 64px;
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       font-weight: 500;
@@ -309,14 +362,14 @@
       color: var(--paper);
       background: var(--ink);
       border: none;
-      text-decoration: none;
       cursor: pointer;
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      margin-top: 16px;
     }
 
-    .cta-btn::before {
+    .submit-btn::before {
       content: '';
       position: absolute;
       top: 0;
@@ -328,18 +381,32 @@
       z-index: 0;
     }
 
-    .cta-btn:hover::before {
+    .submit-btn:hover::before {
       left: 0;
     }
 
-    .cta-btn span {
+    .submit-btn span {
       position: relative;
       z-index: 1;
     }
 
-    .cta-btn:hover {
+    .submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .form-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 24px;
+      font-style: italic;
     }
 
     /* Application Questions */
@@ -432,6 +499,15 @@
       .alt-option {
         padding: 32px 24px;
       }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .application-form {
+        margin-top: 32px;
+      }
     }
 
     /* Animations */
@@ -449,6 +525,34 @@
     .header,
     .section {
       animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 48px 32px;
+      background: var(--ink);
+      color: var(--paper);
+      margin-top: 48px;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .success-message h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .success-message p {
+      font-size: 1.1rem;
+      opacity: 0.85;
     }
   </style>
 </head>
@@ -534,21 +638,78 @@
       <h2>Application</h2>
       <p>This is premium, personalized work. If you're looking for cheap, join HOMEUniversity. If you're ready for acceleration, apply.</p>
 
-      <!-- REPLACE href WITH YOUR TYPEFORM/FORM LINK -->
-      <a href="#" class="cta-btn">
-        <span>Apply for Coaching</span>
-      </a>
+      <!-- APPLICATION FORM -->
+      <form 
+        action="https://formspree.io/f/xqepywjp" 
+        method="POST" 
+        class="application-form"
+        id="applicationForm">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="age">Age *</label>
+            <input type="number" id="age" name="age" min="18" required>
+          </div>
+        </div>
 
-      <div class="application-questions">
-        <h3>You'll Be Asked</h3>
-        <ul>
-          <li>Name, email, location, age (18+)</li>
-          <li>What you do, strengths, weaknesses, life context</li>
-          <li>What you want help with — physical, mental, spiritual</li>
-          <li>What you've already tried</li>
-          <li>What about my work resonates with you</li>
-          <li>Your transformation goal (1 year)</li>
-        </ul>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">Location *</label>
+            <input type="text" id="location" name="location" placeholder="City, Country" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="occupation">What You Do *</label>
+          <input type="text" id="occupation" name="occupation" placeholder="Your work, business, or primary focus" required>
+        </div>
+
+        <div class="form-group">
+          <label for="context">Life Context: Strengths & Weaknesses *</label>
+          <textarea id="context" name="context" placeholder="What are you good at? Where do you struggle? Give me the real picture." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="help-needed">What You Need Help With *</label>
+          <textarea id="help-needed" name="help-needed" placeholder="Physical, mental, spiritual—what needs to change?" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="tried">What You've Already Tried *</label>
+          <textarea id="tried" name="tried" placeholder="Books, programs, therapies, practices—what have you done and why didn't it work?" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="resonance">What Resonates About My Work *</label>
+          <textarea id="resonance" name="resonance" placeholder="Why me? What about my content or approach speaks to you?" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="goal">1-Year Transformation Goal *</label>
+          <textarea id="goal" name="goal" placeholder="Where do you want to be in 12 months? Be specific." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span>Submit Application</span>
+        </button>
+
+        <p class="form-note">All fields are required. I'll review your application and be in touch.</p>
+      </form>
+
+      <!-- SUCCESS MESSAGE -->
+      <div class="success-message" id="successMessage">
+        <h3>Application Received</h3>
+        <p>Thank you for applying. I'll review your submission and reach out if you're a fit for the work.</p>
       </div>
     </div>
 
@@ -560,5 +721,27 @@
     </div>
 
   </div>
+
+  <script>
+    // Handle form submission
+    const form = document.getElementById('applicationForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      const submitBtn = form.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Submitting...';
+    });
+
+    // Show success message after form submission
+    window.addEventListener('load', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('success') || document.referrer.includes('formspree')) {
+        form.style.display = 'none';
+        successMessage.classList.add('show');
+        window.scrollTo({ top: successMessage.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 </html>
