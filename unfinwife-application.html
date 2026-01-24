@@ -1,395 +1,1059 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="images/faviconwife.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wife Application | Jacob Fleming</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-      font-family: 'Crimson+Text', serif;
-      background: linear-gradient(135deg, #fff5f7 0%, #ffe6eb 50%, #ffd6df 100%);
-      color: #2d1b1e;
-      line-height: 1.8;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+    :root {
+      --ink: #1a1a1a;
+      --paper: #f8f6f1;
+      --paper-dark: #eee9df;
+      --accent: #8b0000;
+      --accent-light: #a52a2a;
+      --muted: #6b6b6b;
+      --border: #d4cfc4;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      min-height: 100vh;
+      font-size: 18px;
+    }
+
+    /* Texture overlay */
     body::before {
-      content: '💕';
+      content: '';
       position: fixed;
-      font-size: 400px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       opacity: 0.03;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       pointer-events: none;
-      z-index: 0;
+      z-index: 1000;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--paper);
     }
 
     .container {
-      max-width: 800px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 80px 32px;
+      padding: 80px 32px 120px;
       position: relative;
-      z-index: 1;
     }
 
+    /* Navigation */
     .back-link {
-      color: #d4447e;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
       text-decoration: none;
-      font-size: 1rem;
-      display: inline-block;
-      margin-bottom: 40px;
-      transition: color 0.3s;
-      font-style: italic;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      transition: color 0.3s ease;
     }
 
     .back-link:hover {
-      color: #e85d8c;
+      color: var(--ink);
     }
 
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-4px);
+    }
+
+    /* Header */
     .header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .header::after {
+      content: '✦';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--paper);
+      padding: 0 20px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .overline {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      color: #d4447e;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3.5rem, 10vw, 5.5rem);
+      font-weight: 400;
       font-style: italic;
-      line-height: 1.1;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 16px;
+      color: var(--ink);
     }
 
     .subtitle {
-      font-size: 1.3rem;
-      opacity: 0.7;
-      font-style: italic;
-      color: #8b4258;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
+    /* Introduction */
     .intro {
-      background: rgba(255, 255, 255, 0.6);
-      border: 2px solid #ffc2d4;
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 50px;
-      backdrop-filter: blur(10px);
+      margin-bottom: 80px;
+      font-size: 1.25rem;
+      line-height: 1.9;
     }
 
     .intro p {
-      font-size: 1.1rem;
-      margin-bottom: 16px;
-      line-height: 1.8;
+      margin-bottom: 24px;
     }
 
     .intro p:last-child {
       margin-bottom: 0;
     }
 
+    .intro strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .intro .warning {
+      font-style: italic;
+      color: var(--muted);
+      padding-left: 24px;
+      border-left: 2px solid var(--accent);
+      margin-top: 32px;
+    }
+
+    /* Sections */
     .section {
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       margin-bottom: 40px;
-      padding: 32px;
-      background: rgba(255, 255, 255, 0.6);
-      border: 2px solid #ffc2d4;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+      background: var(--ink);
+      padding: 6px 12px;
+      flex-shrink: 0;
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #d4447e;
-      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 500;
       font-style: italic;
+      letter-spacing: 0.02em;
     }
 
+    /* Questions */
     .question {
-      margin-bottom: 32px;
+      margin-bottom: 48px;
+      position: relative;
     }
 
     .question:last-child {
       margin-bottom: 0;
     }
 
+    .question-label {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
     .question-num {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: #d4447e;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .question-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
     }
 
     .question-text {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #2d1b1e;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
     }
 
-    textarea, input[type="text"], input[type="email"] {
+    .question-text em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* Form Elements */
+    textarea,
+    input[type="text"],
+    input[type="email"],
+    input[type="url"] {
       width: 100%;
-      padding: 12px;
-      font-family: 'Crimson Text', serif;
-      font-size: 1rem;
-      border: 2px solid #ffc2d4;
-      border-radius: 8px;
-      margin-top: 12px;
-      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--ink);
+      transition: all 0.3s ease;
       resize: vertical;
-      min-height: 100px;
     }
 
-    input[type="text"], input[type="email"] {
-      min-height: auto;
+    textarea {
+      min-height: 140px;
     }
 
-    textarea:focus, input:focus {
+    textarea:focus,
+    input:focus {
       outline: none;
-      border-color: #d4447e;
+      border-color: var(--ink);
+      box-shadow: 0 0 0 1px var(--ink);
     }
 
+    textarea::placeholder,
+    input::placeholder {
+      color: #bbb;
+      font-style: italic;
+    }
+
+    /* Section Intro Text */
+    .section-intro {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    /* Checkboxes */
+    .checkbox-group {
+      margin: 40px 0;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--border);
+      background: white;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 4px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .checkbox-item input[type="checkbox"]:checked {
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 12px;
+    }
+
+    .checkbox-item label {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      cursor: pointer;
+    }
+
+    /* Info Section */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .info-grid .question {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Submit Section */
     .submit-section {
-      background: linear-gradient(135deg, #ffd6df 0%, #ffc2d4 100%);
-      border: 3px solid #d4447e;
-      border-radius: 24px;
-      padding: 48px;
+      margin-top: 100px;
+      padding-top: 60px;
+      border-top: 1px solid var(--border);
       text-align: center;
-      margin-top: 60px;
+      position: relative;
+    }
+
+    .submit-section::before {
+      content: '✦ ✦ ✦';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--paper);
+      padding: 0 20px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 8px;
+    }
+
+    .submit-section h2 {
+      margin-bottom: 32px;
+    }
+
+    .confirmation-list {
+      list-style: none;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .confirmation-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .confirmation-list li::before {
+      content: '—';
+      color: var(--accent);
     }
 
     .submit-btn {
-      background: linear-gradient(135deg, #d4447e 0%, #e85d8c 100%);
-      color: white;
-      padding: 20px 60px;
-      font-size: 1.3rem;
-      font-weight: bold;
+      display: inline-block;
+      padding: 20px 64px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--ink);
       border: none;
-      border-radius: 16px;
       cursor: pointer;
-      font-family: 'Playfair Display', serif;
-      box-shadow: 0 8px 24px rgba(212, 68, 126, 0.3);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    .submit-btn:hover::before {
+      left: 0;
+    }
+
+    .submit-btn span {
+      position: relative;
+      z-index: 1;
     }
 
     .submit-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 12px 32px rgba(212, 68, 126, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
-    .confirmation {
-      margin-top: 32px;
+    /* Mirror Note */
+    .mirror-note {
+      margin-top: 100px;
+      padding: 48px;
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+    }
+
+    .mirror-note p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      margin-bottom: 20px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mirror-note p:last-child {
+      margin-bottom: 0;
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .mirror-note strong {
+      color: #d4a574;
+    }
+
+    /* Alternative CTA */
+    .alt-cta {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .alt-cta p {
       font-size: 0.95rem;
-      opacity: 0.8;
-      line-height: 1.6;
+      color: var(--muted);
     }
 
-    .confirmation li {
-      margin-bottom: 8px;
+    .alt-cta a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
 
-    strong {
-      color: #d4447e;
-      font-weight: 700;
+    .alt-cta a:hover {
+      color: var(--ink);
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      .container { padding: 60px 20px; }
-      .section { padding: 24px; }
-      h1 { font-size: 2.5rem; }
-      .submit-section { padding: 32px 20px; }
+      .container {
+        padding: 60px 24px 80px;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .section {
+        margin-bottom: 60px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .mirror-note {
+        padding: 32px 24px;
+      }
     }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header,
+    .intro,
+    .section {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .intro { animation-delay: 0.1s; }
+    .section:nth-child(1) { animation-delay: 0.15s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.25s; }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back-link">← Back to Home</a>
-    
-    <div class="header">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <header class="header">
+      <span class="overline">An Inquiry of Intention</span>
       <h1>Wife Application</h1>
       <p class="subtitle">Jacob Fleming</p>
-    </div>
+    </header>
 
     <div class="intro">
       <p>I'm looking for a wife who wants to build a real family.</p>
-      <p>I'm building SourceOS (modern spiritual framework), running HOMEUniversity (consciousness school), and producing music. I'm focused entirely on my work. I will provide for my family.</p>
-      <p><strong>This is serious. If you're not serious, leave.</strong></p>
+      <p>Not a modern arrangement where two people split bills and outsource children to institutions. A family where the man provides, protects, and leads—and the woman cultivates the home as a center of beauty, intellect, creativity, and children.</p>
+      <p>I'm focused entirely on my work. I will provide for my family completely. You will never need to work unless you genuinely want to. Your role is to be free—free from wage-slavery, free from corporate stress, free to pour yourself into children, creativity, health, and home.</p>
+      <p class="warning"><strong>This is serious.</strong> If you're not serious, stop here.</p>
     </div>
 
     <form action="https://formspree.io/f/mgoovwbe" method="POST">
-
-      
-      <div class="section">
-        <h2>Core Values</h2>
-        
-        <div class="question">
-          <div class="question-num">Q1: Gender Roles & Family Structure</div>
-          <div class="question-text">What do you believe about traditional gender roles? Do you think the optimal structure is the man providing financially while the woman focuses on home and children? Explain your actual views.</div>
-          <textarea name="q1" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q2: Marriage & Loyalty</div>
-          <div class="question-text">What does marriage mean to you? How serious is infidelity in your view? Is marriage permanent or conditional?</div>
-          <textarea name="q2" required></textarea>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Motherhood & Children (Non-Negotiable)</h2>
-        
-        <div class="question">
-          <div class="question-num">Q3: Desire for Children</div>
-          <div class="question-text">How many children do you want? I want 4-6. By submitting this form, you're saying you're willing to have as many children as we safely and realistically can. Is this genuinely what you want, or does this sound insane to you?</div>
-          <textarea name="q3" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q4: Pregnancy Protocol</div>
-          <div class="question-text">My mother read to me and sang to me every single day while I was in the womb. I expect the same for our children - at least 2 hours daily of reading (math, science, history, philosophy, stories) starting DURING pregnancy and continuing throughout childhood. Does this sound like something you'd genuinely love doing, or does it sound like hell?</div>
-          <textarea name="q4" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q5: Full Presence During Pregnancy</div>
-          <div class="question-text">From conception through birth and recovery, you would be completely unemployed - zero work stress, full presence with the baby. No grinding while pregnant. The baby gets everything. Does this sound right to you or does it sound like "giving up your life"?</div>
-          <textarea name="q5" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q6: Your Actual Feelings About Kids</div>
-          <div class="question-text">What do you genuinely think about children and babies? Do they light you up or annoy you? Be completely honest.</div>
-          <textarea name="q6" required></textarea>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Who You Are</h2>
-        
-        <div class="question">
-          <div class="question-num">Q7: Sexual History</div>
-          <div class="question-text">Are you a virgin? If no, explain your full sexual history - how many partners, what happened, why those relationships ended. If yes, why have you remained a virgin? Be honest. Would you be willing to verify this if I had concerns?</div>
-          <textarea name="q7" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q8: Lifestyle & Health</div>
-          <div class="question-text">Describe your actual lifestyle - what you eat, how you spend your time, your health habits. TikTok, Instagram, junk food, drinking, partying - where are you at with all this? What are you willing to change?</div>
-          <textarea name="q8" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q9: Your Actual Skills</div>
-          <div class="question-text">What are you good at? What are your hobbies? Can you cook? Do you enjoy it? Are you tidy? What would you bring to a household? Don't list things just to sound good - what do you actually do?</div>
-          <textarea name="q9" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q10: Tattoos & Appearance</div>
-          <div class="question-text">Do you have tattoos? If yes, describe them or show them. How do you present yourself generally?</div>
-          <textarea name="q10" required></textarea>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Background & Inner World</h2>
-        
-        <div class="question">
-          <div class="question-num">Q11: Trauma & Shadow</div>
-          <div class="question-text">What trauma or emotional baggage are you carrying? What have you done to deal with it? Be real about what I'd be working with.</div>
-          <textarea name="q11" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q12: Your People</div>
-          <div class="question-text">Who are your friends and what are they like? What's your family situation? What role do these people play in your life?</div>
-          <textarea name="q12" required></textarea>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Why You're Here</h2>
-        
-        <div class="question">
-          <div class="question-num">Q13: Your Socials & Online Presence</div>
-          <div class="question-text">Link your Instagram, TikTok, X, or whatever social media you actually use. Let me see how you present yourself online.</div>
-          <input type="text" name="q13" placeholder="Instagram: @yourusername" required>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q14: Why This? Why Now?</div>
-          <div class="question-text">What compelled you to fill out this form? Are you actually aligned with traditional family values, or did you just see a TikTok and think I'm attractive? Why do you think we'd work?</div>
-          <textarea name="q14" required></textarea>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Q15: Understanding My Work</div>
-          <div class="question-text">Have you looked into SourceOS, HOMEUniversity, my music, any of my actual projects? What resonates with you about what I'm building?</div>
-          <textarea name="q15" required></textarea>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Your Information</h2>
-        
-        <div class="question">
-          <div class="question-num">Your Name:</div>
-          <input type="text" name="name" required>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Your Email:</div>
-          <input type="email" name="email" required>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Your Location:</div>
-          <input type="text" name="location" placeholder="City, Country" required>
-        </div>
-
-        <div class="question">
-          <div class="question-num">Your Age:</div>
-          <input type="text" name="age" required>
-        </div>
-      </div>
-
-      <div class="submit-section">
-        <h2 style="margin-bottom: 24px; color: #2d1b1e;">Final Confirmation</h2>
-        <div class="confirmation">
-          <p>By submitting this application, I confirm that:</p>
-          <ul style="list-style: none; padding: 0; margin: 20px 0;">
-            <li>✓ I am 18 years or older</li>
-            <li>✓ I have answered honestly</li>
-            <li>✓ I am serious about traditional marriage and motherhood</li>
-            <li>✓ I understand these are real requirements</li>
-            <li>✓ I am ready to be contacted if selected</li>
-          </ul>
-        </div>
-        
-        <button type="submit" class="submit-btn">Submit Application</button>
-        
-        <p style="margin-top: 32px; font-size: 0.9rem; opacity: 0.7;">
-          <strong>Not ready for this?</strong><br>
-          Join HOMEUniversity instead: <a href="https://skool.com/homeuniversity" style="color: #d4447e;">skool.com/homeuniversity</a>
-        </p>
-      </div>
-          </div>
-      
-      <!-- Formspree magic -->
       <input type="hidden" name="_subject" value="Wife Application Submitted">
-      <input type="hidden" name="_replyto" value="email">
-      
+
+      <!-- VISION -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION I</span>
+          <h2>Vision</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q1</span>
+            <span class="question-title">Your Ideal Day</span>
+          </div>
+          <p class="question-text">Describe your ideal day as a married woman with young children, a devoted husband, and zero financial stress. You have freedom to pursue art, music, learning, gardening—whatever feeds your soul—while raising children saturated in love and wisdom from birth.<br><br><em>What does that day actually look like? What are you doing? How do you feel?</em></p>
+          <textarea name="q1_ideal_day" required placeholder="Describe your vision..."></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q2</span>
+            <span class="question-title">The Marriage Your Children Witness</span>
+          </div>
+          <p class="question-text">What kind of marriage do you want your children to see and eventually model? What would make you proud for your daughter to expect from a husband—or your son to become as a man?</p>
+          <textarea name="q2_marriage_model" required></textarea>
+        </div>
+      </div>
+
+      <!-- CORE VALUES -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION II</span>
+          <h2>Core Values</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q3</span>
+            <span class="question-title">Division of Labor</span>
+          </div>
+          <p class="question-text">I believe the optimal structure is the man providing financially while the woman governs the home and children—not as limitation, but as liberation. Women throughout history who lived this way weren't oppressed. They ran households as intellectual and artistic institutions while raising children who shaped civilization.<br><br><em>What do you actually believe about this? If you disagree, explain your alternative vision.</em></p>
+          <textarea name="q3_division_labor" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q4</span>
+            <span class="question-title">Marriage and Loyalty</span>
+          </div>
+          <p class="question-text">What does marriage mean to you? Is it permanent and sacred, or conditional and negotiable? How serious is infidelity in your view?<br><br><em>Be specific. I want to understand how you actually think about commitment.</em></p>
+          <textarea name="q4_marriage_loyalty" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q5</span>
+            <span class="question-title">The Feminist Question</span>
+          </div>
+          <p class="question-text">What has feminism given you that you're grateful for? What has it cost you that you're only beginning to recognize?<br><br><em>I'm not asking which team you're on. I'm asking what you've actually observed in your own life and the lives of women around you.</em></p>
+          <textarea name="q5_feminism" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q6</span>
+            <span class="question-title">Leadership and Trust</span>
+          </div>
+          <p class="question-text">Do you believe a wife should trust her husband's leadership? Not blind obedience—conscious choice to trust masculine direction, the way any effective partnership requires someone to hold final decision-making authority.<br><br><em>What does that trust look like to you? And equally important: what would be unacceptable in a husband's leadership? Where are the lines?</em></p>
+          <textarea name="q6_leadership" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q7</span>
+            <span class="question-title">My Duties to You</span>
+          </div>
+          <p class="question-text">I believe a husband has sacred duties: to provide completely, to protect fiercely, to lead wisely, to serve sacrificially, and to never abandon.<br><br><em>What are the non-negotiable duties you would hold me accountable to? What does loving leadership look like in daily behavior? I want to know the standard you'd measure me against.</em></p>
+          <textarea name="q7_my_duties" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q8</span>
+            <span class="question-title">What Would Disqualify Me?</span>
+          </div>
+          <p class="question-text">What behaviors, patterns, or failures in a husband would be unacceptable to you? What would make you walk away?<br><br><em>I want to know what standard you hold men to—and whether it's as high as the standard you hold for yourself.</em></p>
+          <textarea name="q8_disqualify_me" required></textarea>
+        </div>
+      </div>
+
+      <!-- MOTHERHOOD -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION III</span>
+          <h2>Motherhood</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q9</span>
+            <span class="question-title">Desire for Children</span>
+          </div>
+          <p class="question-text">How many children do you want? I want 4-6, possibly more.<br><br>I'm looking for a woman who genuinely desires a large family—not as a burden, but as the highest calling. <em>Does this align with your heart, or does it feel misaligned with the life you actually want?</em></p>
+          <textarea name="q9_children" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q10</span>
+            <span class="question-title">Pregnancy as Sacred Work</span>
+          </div>
+          <p class="question-text">My mother read to me and sang to me every day while I was in the womb. Philosophy, history, stories, music—constant enrichment from conception onward. I believe children's potential is shaped from the beginning, through what the mother consumes intellectually, emotionally, and physically during pregnancy.<br><br>I want our children saturated in language, beauty, and ideas from before they're born. This isn't pressure—it's reverence for what we're creating.<br><br><em>Does this vision energize you? Or does it sound exhausting? Be honest.</em></p>
+          <textarea name="q10_pregnancy" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q11</span>
+            <span class="question-title">Full Presence</span>
+          </div>
+          <p class="question-text">From conception through birth and recovery, you would be completely free from work. Zero job stress. Full presence with the baby. Space to read, create, nest, and prepare.<br><br><em>Does this sound like liberation to you—or like a cage? How do you genuinely feel about making pregnancy and early motherhood your entire focus in that season?</em></p>
+          <textarea name="q11_presence" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q12</span>
+            <span class="question-title">Your Honest Feeling About Children</span>
+          </div>
+          <p class="question-text">What do you genuinely feel when you see babies and young children? Do they light you up? Do you feel pulled toward nurturing? Or do they mostly irritate you?<br><br><em>Don't tell me what you think I want to hear. Tell me the truth.</em></p>
+          <textarea name="q12_feelings_children" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q13</span>
+            <span class="question-title">Career vs. Legacy</span>
+          </div>
+          <p class="question-text">Do you have career ambitions? If raising a large family required you to pause professional work for a decade or more, would you embrace that joyfully—or would you eventually resent me for it?<br><br><em>What matters more to you: career achievement or family legacy? I need the honest answer.</em></p>
+          <textarea name="q13_career_legacy" required></textarea>
+        </div>
+      </div>
+
+      <!-- PURITY AND HISTORY -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION IV</span>
+          <h2>Purity and History</h2>
+        </div>
+
+        <p class="section-intro">Sexual history matters. Not as moral judgment, but as pattern recognition. Every bond leaves residue. Pair bonding is real. Trust is built on truth. This section exists because honesty is the foundation of everything.</p>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q14</span>
+            <span class="question-title">Sexual History</span>
+          </div>
+          <p class="question-text">Are you a virgin? If yes, what values led you to that choice?<br><br>If no, explain your history honestly. How many partners? What happened in those relationships? Why did they end? What have you learned?<br><br><em> I'm asking because I want to understand what you carry.</em></p>
+          <textarea name="q14_sexual_history" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q15</span>
+            <span class="question-title">Radical Honesty</span>
+          </div>
+          <p class="question-text">If we move toward marriage, I need to trust your word completely. Do you value complete transparency, even about difficult things? Or does the expectation of full honesty make you defensive?</p>
+          <textarea name="q15_honesty" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q16</span>
+            <span class="question-title">Your Relationship with Purity</span>
+          </div>
+          <p class="question-text">Modern culture encourages women to give away their purity freely—to treat sex as casual, to accumulate experiences, to mock modesty as repression.<br><br><em>Has this served you well? Has it served the women you know? What do you actually believe about purity, virginity, and sexual restraint—not what you've been told to believe, but what you've observed to be true?</em></p>
+          <textarea name="q16_purity" required></textarea>
+        </div>
+      </div>
+
+      <!-- ATTENTION AND PRESENTATION -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION V</span>
+          <h2>Attention and Presentation</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q17</span>
+            <span class="question-title">Male Attention</span>
+          </div>
+          <p class="question-text">What is your relationship with male attention from strangers? Be honest about what validation you seek and why.<br><br><em>What would it cost you emotionally to become invisible to men who aren't your husband?</em></p>
+          <textarea name="q17_attention" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q18</span>
+            <span class="question-title">Social Media</span>
+          </div>
+          <p class="question-text">How do you present yourself online? How many followers? What kind of content? Revealing photos, thirst traps, curated performance—or something more private?<br><br><em>Do you see social media as a tool, a distraction, or a source of validation? Are you willing to make your accounts private or significantly reduce posting after marriage?</em></p>
+          <textarea name="q18_social_media" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q19</span>
+            <span class="question-title">Modesty</span>
+          </div>
+          <p class="question-text">How do you currently dress? Do you dress to attract attention or to command respect?<br><br><em>I'm not asking for frumpy. I'm asking for dignified—like a woman who knows her value isn't in displaying her body to strangers.</em></p>
+          <textarea name="q19_modesty" required></textarea>
+        </div>
+      </div>
+
+      <!-- LIFESTYLE AND HEALTH -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION VI</span>
+          <h2>Lifestyle and Health</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q20</span>
+            <span class="question-title">How You Actually Live</span>
+          </div>
+          <p class="question-text">Describe an honest week in your life. What do you eat? How do you spend your time? How much goes to scrolling, streaming, spectating?<br><br><em>If you tracked your screen time for a week, what would it reveal about what you're actually building?</em></p>
+          <textarea name="q20_lifestyle" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q21</span>
+            <span class="question-title">Substances</span>
+          </div>
+          <p class="question-text">Have you done drugs? How often do you drink? What was your party phase like? What are your current habits?<br><br><em>Full honesty.</em></p>
+          <textarea name="q21_substances" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q22</span>
+            <span class="question-title">Lifelong Vitality</span>
+          </div>
+          <p class="question-text">Are you committed to lifelong health—clean eating, regular movement, protecting your physical and mental vitality? Do you understand that your health is the foundation of our family's strength?</p>
+          <textarea name="q22_health" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q23</span>
+            <span class="question-title">Tattoos and Presentation</span>
+          </div>
+          <p class="question-text">Do you have tattoos? How do you present yourself generally—grooming, style, care for your appearance?</p>
+          <textarea name="q23_appearance" required></textarea>
+        </div>
+      </div>
+
+      <!-- FREEDOM AND CREATION -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION VII</span>
+          <h2>Freedom and Creation</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q24</span>
+            <span class="question-title">What Would You Build?</span>
+          </div>
+          <p class="question-text">Here's the vision: you have complete financial support, a beautiful home, children to raise. You're free from the grind.<br><br><em>What do you actually do with that freedom?</em><br><br>Do you have artistic, intellectual, or creative pursuits you'd pour yourself into? Music, painting, writing, gardening, hosting, deep reading, educating your children? Would you build your home into a center of culture and learning?<br><br>Or would you take this gift for granted—scrolling, watching TV, letting your mind go soft?<br><br><em>Be brutally honest about what you'd actually do with freedom. Most people waste it. Would you?</em></p>
+          <textarea name="q24_freedom" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q25</span>
+            <span class="question-title">Domestic Arts</span>
+          </div>
+          <p class="question-text">What domestic skills do you already feel confident in? Cooking, hospitality, organization, budgeting, childcare?<br><br><em>What would you want to learn? I'm looking for willingness to grow, not perfection.</em></p>
+          <textarea name="q25_domestic" required></textarea>
+        </div>
+      </div>
+
+      <!-- INNER LIFE -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION VIII</span>
+          <h2>Inner Life</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q26</span>
+            <span class="question-title">The Sacred</span>
+          </div>
+          <p class="question-text">What is your relationship with God, the divine, or the transcendent? Not what you claim to believe—what do you actually practice? Prayer, meditation, reading, worship?<br><br><em>What does your spiritual life look like week to week, honestly?</em></p>
+          <textarea name="q26_sacred" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q27</span>
+            <span class="question-title">Your Worldview</span>
+          </div>
+          <p class="question-text">What are your views on abortion? On marriage? On the sexual revolution and its effects on society? On raising children with clear values in a confused culture?<br><br><em>Be specific. I want to understand how you think.</em></p>
+          <textarea name="q27_worldview" required></textarea>
+        </div>
+      </div>
+
+      <!-- ROOTS AND RELATIONSHIPS -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION IX</span>
+          <h2>Roots and Relationships</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q28</span>
+            <span class="question-title">Your Shadow</span>
+          </div>
+          <p class="question-text">What trauma or emotional baggage do you carry? Everyone has something.<br><br><em>What's yours, and what have you done to heal? Be honest about what we'd be working with.</em></p>
+          <textarea name="q28_shadow" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q29</span>
+            <span class="question-title">Your Circle</span>
+          </div>
+          <p class="question-text">Who are your closest friends? What are they like? What's your family situation—relationship with parents, siblings?<br><br><em>How do these people influence you?</em></p>
+          <textarea name="q29_circle" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q30</span>
+            <span class="question-title">Nuclear Priority</span>
+          </div>
+          <p class="question-text">Are you willing to prioritize our family's needs over extended family expectations, even when your parents disagree? Can you hold boundaries with grace?</p>
+          <textarea name="q30_nuclear" required></textarea>
+        </div>
+      </div>
+
+      <!-- ALIGNMENT -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">SECTION X</span>
+          <h2>Alignment</h2>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q31</span>
+            <span class="question-title">Your Online Presence</span>
+          </div>
+          <p class="question-text">Link your social media. I want to see how you present yourself to the world.</p>
+          <input type="url" name="q31_socials" placeholder="Instagram, TikTok, X, etc." required>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q32</span>
+            <span class="question-title">Why This?</span>
+          </div>
+          <p class="question-text">What compelled you to fill this out? Are you genuinely aligned with these values, or just curious?<br><br><em>Why do you think we'd work together?</em></p>
+          <textarea name="q32_why" required></textarea>
+        </div>
+
+        <div class="question">
+          <div class="question-label">
+            <span class="question-num">Q33</span>
+            <span class="question-title">The Final Question</span>
+          </div>
+          <p class="question-text">Are you ready to commit fully to motherhood, family, and feminine cultivation—understanding it means sacrifice, reorientation, and building something that matters more than your individual ambitions?<br><br><em>This is not a game. This is your life and your children's lives. Are you ready?</em></p>
+          <textarea name="q33_final" required></textarea>
+        </div>
+      </div>
+
+      <!-- NON-NEGOTIABLES -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">CONFIRM</span>
+          <h2>Non-Negotiables</h2>
+        </div>
+
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="check1" name="check_legacy" required>
+            <label for="check1">I prioritize family legacy over career achievement.</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="check2" name="check_home" required>
+            <label for="check2">I embrace a home-centered role as liberation, not limitation.</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="check3" name="check_purity" required>
+            <label for="check3">I value purity, modesty, and lifelong loyalty.</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="check4" name="check_children" required>
+            <label for="check4">I am willing to have 4+ children and raise them with full presence.</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="check5" name="check_standards" required>
+            <label for="check5">I hold myself to high standards—and hold men to equally high standards.</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- YOUR INFORMATION -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">INFO</span>
+          <h2>Your Information</h2>
+        </div>
+
+        <div class="info-grid">
+          <div class="question">
+            <div class="question-label">
+              <span class="question-title">Full Name</span>
+            </div>
+            <input type="text" name="name" required>
+          </div>
+
+          <div class="question">
+            <div class="question-label">
+              <span class="question-title">Age</span>
+            </div>
+            <input type="text" name="age" required>
+          </div>
+
+          <div class="question">
+            <div class="question-label">
+              <span class="question-title">Email</span>
+            </div>
+            <input type="email" name="email" required>
+          </div>
+
+          <div class="question">
+            <div class="question-label">
+              <span class="question-title">Location</span>
+            </div>
+            <input type="text" name="location" placeholder="City, Country" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-section">
+        <h2>Final Confirmation</h2>
+
+        <ul class="confirmation-list">
+          <li>I am of legal age</li>
+          <li>I have answered with complete honesty</li>
+          <li>I am serious about traditional marriage, motherhood, and building something greater than myself</li>
+          <li>I understand these are requirements, not suggestions</li>
+          <li>I am ready to be contacted if there is genuine alignment</li>
+        </ul>
+
+        <button type="submit" class="submit-btn">
+          <span>Submit Application</span>
+        </button>
+
+        <div class="alt-cta">
+          <p>Not ready for this?<br>Join HOMEUniversity instead: <a href="https://skool.com/homeuniversity" target="_blank">skool.com/homeuniversity</a></p>
+        </div>
+      </div>
+
     </form>
+
+    <!-- MIRROR NOTE -->
+    <div class="mirror-note">
+      <p>If you've read this and felt defensive, ask yourself why.</p>
+      <p>If you've read this and realized you don't qualify, ask yourself what you've been building instead—and whether it's actually making you happy.</p>
+      <p>If you've read this and felt something ancient stir in you, something that recognizes this as true even though the modern world calls it wrong—then maybe we should talk.</p>
+      <p><strong>This document is a mirror. What you see in it says more about you than it does about me.</strong></p>
+    </div>
 
   </div>
 </body>
