@@ -3,21 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interdimensional Ascension Coaching | Jacob Fleming</title>
+  <title>Ascension Coaching | Jacob Fleming</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-      font-family: 'Space Mono', monospace;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1528 100%);
-      color: #e0e0e0;
+    :root {
+      --ink: #1a1a1a;
+      --paper: #f8f6f1;
+      --paper-dark: #eee9df;
+      --accent: #4a1c6b;
+      --accent-light: #6b2d8a;
+      --gold: #8b7355;
+      --muted: #6b6b6b;
+      --border: #d4cfc4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
       line-height: 1.7;
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      font-size: 18px;
     }
 
     body::before {
@@ -27,366 +45,520 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(75, 0, 130, 0.15) 0%, transparent 50%);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1000;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--paper);
     }
 
     .container {
-      max-width: 900px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 80px 32px;
+      padding: 80px 32px 120px;
+      position: relative;
+    }
+
+    /* Navigation */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--ink);
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-4px);
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 80px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .header::after {
+      content: '✦';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--paper);
+      padding: 0 20px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .overline {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--paper);
+      background: var(--ink);
+      padding: 6px 12px;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Highlight Box */
+    .highlight {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 32px;
+      margin: 40px 0;
+      position: relative;
+    }
+
+    .highlight p {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .highlight strong {
+      color: #d4a574;
+    }
+
+    /* List */
+    ul {
+      list-style: none;
+      margin: 32px 0;
+    }
+
+    ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding-left: 28px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Status */
+    .status {
+      text-align: center;
+      margin: 48px 0;
+      padding: 32px;
+      border: 2px solid var(--ink);
+    }
+
+    .status-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .status-value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .status-value.full {
+      color: #8b0000;
+    }
+
+    .status-value.open {
+      color: var(--accent);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      margin-top: 80px;
+      padding-top: 60px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '✦ ✦ ✦';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--paper);
+      padding: 0 20px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 8px;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 24px;
+    }
+
+    .cta-section p {
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 20px 64px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--ink);
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transition: left 0.4s ease;
+      z-index: 0;
+    }
+
+    .cta-btn:hover::before {
+      left: 0;
+    }
+
+    .cta-btn span {
       position: relative;
       z-index: 1;
     }
 
-    .back-link {
-      color: #8a2be2;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin-bottom: 40px;
-      transition: color 0.3s;
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
-    .back-link:hover {
-      color: #9d4edd;
+    /* Application Questions */
+    .application-questions {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px dashed var(--border);
+      text-align: left;
     }
 
-    h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #8a2be2 0%, #da70d6 50%, #9d4edd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      opacity: 0.7;
-      margin-bottom: 60px;
-      font-style: italic;
-    }
-
-    .section {
-      margin-bottom: 50px;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(138, 43, 226, 0.2);
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-    }
-
-    h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #9d4edd;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #da70d6;
-      margin: 30px 0 16px 0;
-    }
-
-    p {
+    .application-questions h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
       margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .application-questions ul {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .application-questions li {
       font-size: 1rem;
-      line-height: 1.8;
+      color: var(--muted);
     }
 
-    .highlight-box {
-      background: rgba(138, 43, 226, 0.1);
-      border-left: 4px solid #8a2be2;
-      padding: 24px;
-      margin: 30px 0;
-      border-radius: 8px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-    }
-
-    ul li {
-      padding-left: 32px;
-      margin-bottom: 12px;
-      position: relative;
-      line-height: 1.8;
-    }
-
-    ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: #8a2be2;
-      font-weight: bold;
-    }
-
-    .examples {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 24px;
-      border-radius: 12px;
-      margin: 24px 0;
-    }
-
-    .examples h4 {
-      color: #da70d6;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      font-family: 'Syne', sans-serif;
-    }
-
-    .status-banner {
-      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      font-weight: bold;
-      margin: 30px 0;
-      font-size: 1.1rem;
-    }
-
-    .status-banner.waitlist {
-      background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
-      color: #000;
-    }
-
-    .investment {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #9d4edd;
-      margin: 20px 0;
-    }
-
-    .typeform-container {
-      margin: 40px 0;
-      padding: 48px;
-      background: rgba(138, 43, 226, 0.05);
-      border: 2px solid #8a2be2;
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    .typeform-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #8a2be2 0%, #9d4edd 100%);
-      color: white;
-      padding: 20px 48px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-family: 'Syne', sans-serif;
-    }
-
-    .typeform-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(138, 43, 226, 0.4);
-    }
-
+    /* Alt Option */
     .alt-option {
+      margin-top: 80px;
+      padding: 48px;
+      background: var(--ink);
+      color: var(--paper);
       text-align: center;
-      margin-top: 60px;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 16px;
     }
 
     .alt-option h3 {
-      color: #8a2be2;
-      margin-bottom: 16px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 12px;
     }
 
-    .alt-link {
-      display: inline-block;
-      color: #da70d6;
+    .alt-option p {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .alt-option a {
+      color: #d4a574;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-top: 12px;
-      transition: color 0.3s;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
     }
 
-    .alt-link:hover {
-      color: #9d4edd;
+    .alt-option a:hover {
+      opacity: 0.7;
     }
 
-    strong {
-      color: #da70d6;
-      font-weight: 700;
-    }
-
+    /* Responsive */
     @media (max-width: 768px) {
       .container {
-        padding: 60px 20px;
+        padding: 60px 24px 80px;
       }
-      .section {
-        padding: 28px 20px;
-      }
-      .typeform-container {
-        padding: 32px 20px;
-      }
+
       h1 {
         font-size: 2.5rem;
       }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .highlight {
+        padding: 24px;
+      }
+
+      .alt-option {
+        padding: 32px 24px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header,
+    .section {
+      animation: fadeInUp 0.8s ease forwards;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back-link">← Back to Home</a>
-    
-    <h1>INTERDIMENSIONAL<br>ASCENSION<br>COACHING</h1>
-    <p class="subtitle">Direct Transmission. Zero Cope. Maximum ROI.</p>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to Home
+    </a>
 
+    <header class="header">
+      <span class="overline">Private Work with Jacob Fleming</span>
+      <h1>Ascension Coaching</h1>
+      <p class="subtitle">Direct Transmission • Zero Cope • Maximum ROI</p>
+    </header>
+
+    <!-- THE WORK -->
     <div class="section">
-      <h2>Personalized Consciousness Unlocking</h2>
-      
-      <h3>What is an unlock?</h3>
-      <p>An unlock is a piece of information, understanding, or awareness activation that you need.</p>
-      <p>It could just be a single quote that changes your mindset forever. Or a book, a habit to add/delete.</p>
-      <p>There's a lot of information available. A lower-dimensional consciousness framework needs <strong>DEBUGGING</strong>.</p>
-      <p>Many consciousness bugs get spread within the collective, become normalised, or are even leveraged by others to extract from you.</p>
-      <p>But if you haven't started working on your consciousness at all—this can be a slow process.</p>
-      
-      <div class="highlight-box">
-        <p><strong>Essentially - you want to be free from time vectors.</strong></p>
-        <p>The deeper you get into this work, the more unlocks you'll receive.</p>
+      <div class="section-header">
+        <span class="section-number">I</span>
+        <h2>The Work</h2>
+      </div>
+
+      <p>An <strong>unlock</strong> is a piece of information, understanding, or awareness activation that you need. It could be a single quote that changes your mindset forever. A book. A habit to add or delete. A shadow you didn't know was running you.</p>
+
+      <p>There's infinite information available. Most of it is noise. Your consciousness framework has <strong>bugs</strong>—false beliefs, inherited patterns, energetic leaks. Many of these bugs are normalized by the collective. Some are weaponized against you.</p>
+
+      <p>I find them. I debug them. I install what actually works.</p>
+
+      <div class="highlight">
+        <p><strong>This is direct transmission.</strong> We get on a call. I ascend you into a higher frequency as fast as possible. No sugar coating. No generic advice. No cope.</p>
       </div>
     </div>
 
+    <!-- WHAT YOU RECEIVE -->
     <div class="section">
-      <h2>Private 1-on-1 Work with Jacob</h2>
-      <p><strong>This is direct transmission.</strong></p>
-      <p>We'll hop on a call. The goal: I will ascend you into a higher consciousness frequency as fast as possible. This is a system that doesn't skip 3D reality - rather it builds on top of it.</p>
-      <p>I have particular areas of knowledge where I excel. We'll see if we are a good fit.</p>
-      <p>Using the material from HOMEUniversity, my own internal perception framework, my own music, I will guide you through it in the way that makes most sense for <strong>YOU</strong>.</p>
-      
-      <div class="highlight-box">
-        <p><strong>This is zero coping. Maximum ROI.</strong></p>
-        <p>If you like things sugar coated - this isn't for you.</p>
-        <p>If you are scared of change, optimization, taking action fast, or the rapidly changing modern world - this isn't for you.</p>
+      <div class="section-header">
+        <span class="section-number">II</span>
+        <h2>What You Receive</h2>
       </div>
-      
-      <p>Of course, everything in reality is subjective. But if you enjoy my online content - then you would benefit from accessing the personal data stream.</p>
-    </div>
 
-    <div class="section">
-      <h2>What You Receive: Personalised Deployment Effective Immediately</h2>
       <ul>
-        <li>Weekly calls (60 min)</li>
-        <li>Custom protocol design (energy work, essential study materials, frequency leverage, recovery protocols)</li>
-        <li>Direct Telegram access (priority responses)</li>
-        <li>Activation sessions (energetic clearing, transmission work)</li>
-        <li>Full HOMEUniversity access included (all pills, all tiers)</li>
-        <li>Questions answered as simply as I can</li>
+        <li>Weekly calls (60 min) — direct work, not conversation</li>
+        <li>Custom protocol design — energy work, study materials, recovery systems</li>
+        <li>Direct Telegram access — priority responses between calls</li>
+        <li>Full HOMEUniversity access included — all content, all tiers</li>
       </ul>
 
-      <p style="margin-top: 30px;"><strong>This is not generic advice.</strong></p>
-      <p>This is a system to achieve rapid knowledge of self to obtain maximum personal sovereignty.</p>
-      <p>Obviously - the more empowered you are on a personal level - the more you can achieve in life, and the more awesome your life will be.</p>
-      <p>I have tested my frequency on friends and noticed their rapid increase in self belief, desire to be bold in life, and leverage their own natural talents without fear.</p>
+      <p>Everything is personalized. I deploy a plan based on <em>you</em>—your bugs, your shadows, your specific blocks. This isn't a course. This is consciousness acceleration.</p>
     </div>
 
+    <!-- WHO THIS IS FOR -->
     <div class="section">
-      <h2>The Reality:</h2>
-      <div class="examples">
-        <h4>Examples of what might be holding you back:</h4>
-        <ul>
-          <li>You're probably running poor mental belief systems (bugs) and thought patterns daily</li>
-          <li>Shadows are controlling you (some you don't even know about)</li>
-          <li>You're perceiving reality in a 3D material way and not leveraging ANY spiritual practices</li>
-          <li>Energetic wastage/misunderstanding of its mechanics</li>
-          <li>Areas of mindset cope that hold you back (Truth is King)</li>
-        </ul>
+      <div class="section-header">
+        <span class="section-number">III</span>
+        <h2>Who This Is For</h2>
       </div>
 
-      <p><strong>I will deploy my own plan based on our chat for maximum ROI.</strong></p>
+      <p>You're running poor mental systems daily and you know it. Shadows are controlling you—some you haven't even identified. You're perceiving reality in purely material terms and leaving spiritual leverage untouched.</p>
 
-      <div class="examples">
-        <h4>Examples of what I might prescribe:</h4>
-        <ul>
-          <li>Focusing on studying a book or idea</li>
-          <li>Quotes/prompts to begin immediately</li>
-          <li>Shadow Alchemy Coaching/Demon banishment exercises</li>
-          <li>Specific protocols</li>
-          <li>Custom daily deployment program for aesthetics, wisdom and beauty</li>
-        </ul>
-      </div>
+      <p>You've tried things. They haven't worked. Or they worked partially. You're ready for someone to tell you the truth and give you exactly what you need.</p>
 
-      <div class="highlight-box">
-        <p style="font-size: 1.2rem;"><strong>This is not a cookie-cutter program. This is consciousness acceleration.</strong></p>
+      <div class="highlight">
+        <p>If you want things sugar-coated, this isn't for you.<br>If you're scared of rapid change, this isn't for you.<br><strong>If you're ready to be free from what's holding you back—apply.</strong></p>
       </div>
     </div>
 
-    <div class="section">
-      <h2>Slots & Investment</h2>
-      
-      <div class="status-banner">
-        Slots: Currently FULL
-      </div>
-      
-      <div class="status-banner waitlist">
-        Waitlist OPEN: Submit application below
-      </div>
-
-      <p style="text-align: center; margin-top: 20px;">You'll be contacted when a slot opens.</p>
-
-      <p class="investment" style="text-align: center; margin-top: 40px;">This is premium, personalized work.</p>
-      <p style="text-align: center;">If you're looking for cheap, join HOMEUniversity ($99/month).</p>
-      <p style="text-align: center;"><strong>If you're ready for acceleration, apply below.</strong></p>
+    <!-- STATUS -->
+    <div class="status">
+      <span class="status-label">Current Status</span>
+      <span class="status-value full">Slots Full</span>
     </div>
 
-    <div class="typeform-container">
-      <h2 style="margin-bottom: 24px;">Application Form</h2>
-      <p style="margin-bottom: 24px; opacity: 0.8;">Replace the button below with your Typeform or Google Form embed:</p>
-      
-      <!-- REPLACE THIS WITH YOUR TYPEFORM EMBED CODE -->
-      <a href="#" class="typeform-btn">APPLY FOR COACHING</a>
-      
-      <!-- EXAMPLE TYPEFORM EMBED (uncomment and replace with your actual form):
-      <div data-tf-widget="YOUR_TYPEFORM_ID" data-tf-opacity="100" data-tf-iframe-props="title=Coaching Application" data-tf-transitive-search-params data-tf-medium="snippet" style="width:100%;height:500px;"></div>
-      <script src="//embed.typeform.com/next/embed.js"></script>
-      -->
-      
-      <div style="margin-top: 32px; font-size: 0.9rem; opacity: 0.7;">
-        <p><strong>Application Questions:</strong></p>
-        <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+    <div class="status">
+      <span class="status-label">Waitlist</span>
+      <span class="status-value open">Open — Apply Below</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Application</h2>
+      <p>This is premium, personalized work. If you're looking for cheap, join HOMEUniversity. If you're ready for acceleration, apply.</p>
+
+      <!-- REPLACE href WITH YOUR TYPEFORM/FORM LINK -->
+      <a href="#" class="cta-btn">
+        <span>Apply for Coaching</span>
+      </a>
+
+      <div class="application-questions">
+        <h3>You'll Be Asked</h3>
+        <ul>
           <li>Name, email, location, age (18+)</li>
-          <li>What you do, strengths and weaknesses, general life history</li>
-          <li>What are you wanting help with? (Physical, sexual, mental, spiritual)</li>
-          <li>What have you tried?</li>
-          <li>What specifically about my frequency are you drawn to?</li>
-          <li>Transformation goal (1 year)?</li>
-          <li>How did you find me? (YouTube/TikTok/Instagram/Friend)</li>
+          <li>What you do, strengths, weaknesses, life context</li>
+          <li>What you want help with — physical, mental, spiritual</li>
+          <li>What you've already tried</li>
+          <li>What about my work resonates with you</li>
+          <li>Your transformation goal (1 year)</li>
         </ul>
       </div>
     </div>
 
+    <!-- ALT OPTION -->
     <div class="alt-option">
-      <h3>Not ready for 1-on-1 work?</h3>
-      <p>Start with HOMEUniversity</p>
-      <p style="font-size: 0.9rem; opacity: 0.8; margin: 12px 0;">Full system. All pills. $99/month.</p>
-      <a href="https://skool.com/homeuniversity" class="alt-link">Join HOMEUniversity →</a>
+      <h3>Not ready for 1-on-1?</h3>
+      <p>Start with HOMEUniversity. Full system. $99/month.</p>
+      <a href="https://skool.com/homeuniversity">Join HOMEUniversity →</a>
     </div>
+
   </div>
 </body>
 </html>
