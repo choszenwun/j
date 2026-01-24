@@ -298,6 +298,8 @@
       border-radius: 8px;
       padding: 32px;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .family-card:hover {
@@ -322,26 +324,18 @@
       width: 56px;
       height: 56px;
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      color: #fff;
       margin-bottom: 20px;
+      object-fit: cover;
     }
-
-    .icon-sourceos { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
-    .icon-homeuni { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-    .icon-flow { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
-    .icon-secret { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); }
-    .icon-mentorship { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
-    .icon-wife { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
 
     .family-card h2 {
       font-size: 24px;
       font-weight: 500;
       margin-bottom: 12px;
       color: #202124;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
     }
 
     .family-card p {
@@ -349,6 +343,7 @@
       color: #5f6368;
       line-height: 1.6;
       margin-bottom: 20px;
+      flex-grow: 1;
     }
 
     .domain-link {
@@ -377,7 +372,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-top: 16px;
+      margin-top: auto;
       padding-top: 16px;
       border-top: 1px solid #dadce0;
     }
@@ -411,6 +406,7 @@
       font-weight: 500;
       margin-top: 12px;
       transition: all 0.2s;
+      align-self: flex-start;
     }
 
     .card-cta:hover {
@@ -573,9 +569,7 @@
   <section class="family-section" id="familySection">
     <div class="family-grid">
       <div class="family-card">
-        <div class="family-icon icon-sourceos">
-          <i class="fas fa-brain"></i>
-        </div>
+        <img src="images/sourceosthumb.png" alt="SourceOS" class="family-icon">
         <h2>SourceOS</h2>
         <a href="https://sourceos.xyz" class="domain-link">
           <i class="fas fa-globe domain-icon"></i>
@@ -590,9 +584,7 @@
       </div>
 
       <div class="family-card">
-        <div class="family-icon icon-homeuni">
-          <i class="fas fa-graduation-cap"></i>
-        </div>
+        <img src="images/homeunithumb.png" alt="HOMEUniversity" class="family-icon">
         <h2>HOMEUniversity</h2>
         <a href="https://homeuniversity.xyz" class="domain-link">
           <i class="fas fa-globe domain-icon"></i>
@@ -608,9 +600,7 @@
       </div>
 
       <div class="family-card">
-        <div class="family-icon icon-flow">
-          <i class="fas fa-music"></i>
-        </div>
+        <img src="images/flowrecordsthumb.png" alt="Flow Records" class="family-icon">
         <h2>Flow Records</h2>
         <a href="https://flowrecords.xyz" class="domain-link">
           <i class="fas fa-globe domain-icon"></i>
@@ -633,18 +623,14 @@
       </div>
 
       <div class="family-card mentorship-card">
-        <div class="family-icon icon-mentorship">
-          <i class="fas fa-user-graduate"></i>
-        </div>
+        <img src="images/mentorshipthumb.png" alt="Mentorship" class="family-icon">
         <h2>Interdimensional Ascension Mentorship</h2>
         <p>Private 1-on-1 consciousness work. Direct transmission. Zero cope. Maximum ROI. Transform your reality through personalized guidance.</p>
         <a href="mentorship.html" class="card-cta">Apply for Mentorship</a>
       </div>
 
       <div class="family-card wife-card">
-        <div class="family-icon icon-wife">
-          <i class="fas fa-heart"></i>
-        </div>
+        <img src="images/wifeappthumb.png" alt="Wife Application" class="family-icon">
         <h2>Wife Application 💕</h2>
         <p>Building traditional families. Seeking alignment with values, consciousness work, and genuine desire for motherhood and partnership.</p>
         <a href="wife-application.html" class="card-cta wife-cta">Submit Application</a>
